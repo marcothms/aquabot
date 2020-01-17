@@ -187,6 +187,7 @@ async def invite_link(ctx):
     await ctx.send(f"> {response}")
 
 # Prints an Issei reference
+
 @bot.command()
 async def boost(ctx):
     response = """
