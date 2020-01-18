@@ -20,7 +20,7 @@ class AdminCog(commands.Cog):
     # used as "load cogs.COGNAME"
     @commands.command(name="load", hidden=True)
     @commands.is_owner()
-    async def cog_load(self, ctx, *, cog: str):
+    async def load(self, ctx, *, cog: str):
 
         try:
             self.bot.load_extension(cog)
@@ -33,7 +33,7 @@ class AdminCog(commands.Cog):
     # used as "unload cogs.COGNAME"
     @commands.command(name="unload", hidden=True)
     @commands.is_owner()
-    async def cog_unload(self, ctx, *, cog: str):
+    async def unload(self, ctx, *, cog: str):
 
         try:
             self.bot.unload_extension(cog)
@@ -46,7 +46,7 @@ class AdminCog(commands.Cog):
     # used as "reload cogs.COGNAME"
     @commands.command(name="reload", hidden=True)
     @commands.is_owner()
-    async def cog_reload(self, ctx, *, cog: str):
+    async def reload(self, ctx, *, cog: str):
 
         try:
             self.bot.unload_extension(cog)

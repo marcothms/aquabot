@@ -4,7 +4,7 @@
 # https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 #
 
-# IMPORTS
+# IMPORTS - exter
 import discord
 from discord.ext import commands
 
@@ -15,14 +15,14 @@ class HelpCog(commands.Cog):
 
 # COG BODY
     @commands.command(
-            name="aquabot"
+            name="aquabot",
             description="Prints a short help for new users"
             )
     async def aquabot(self, ctx):
 
         await ctx.send("""
-                I'm the usele... divine AquaBot!\n
-                If you need help, try using the `help` command!\n
+                I'm the usele... divine AquaBot!
+                If you need help, try using the `help` command!
                 """)
 
 

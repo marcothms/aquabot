@@ -1,3 +1,5 @@
+![Avatar](img/avatar.png)
+
 AquaBot
 =======
 
@@ -18,14 +20,14 @@ Use `pip install discord.py` to install the latest version of discord.py.
 Then, after cloning this repository with
 `git clone https://github.com/crammk/aquabot`, you can run the `aquabot.py`.
 
+Config
+------
+
+To use the bot you need to add a `config/config.py` file. For reference, see
+`config/config_example.py`.
+
 Requirements
 ------------
 
 python>=3.6.0
 discord.py>=1.0.0a
-
-
-BIGGER TODOS
-------------
-+ Auto-Installing requirements
-+ Separate config directory

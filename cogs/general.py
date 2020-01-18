@@ -36,7 +36,7 @@ class GeneralCog(commands.Cog):
         author = ctx.message.author
         if target is None:
             response = "No one to pat..."
-        else if target.capitalize == "Noel":
+        elif target == "Noel":
             response = "NNN-GYAAAA!"
         else:
             response = f"{target.mention} got pat by {author.mention}"

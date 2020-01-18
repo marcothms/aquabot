@@ -6,26 +6,27 @@
 # This project uses discordpy
 # https://discordpy.readthedocs.io/en/latest/intro.html
 
-# IMPORTS
+# IMPORTS - external
 import discord
-from discord.utils import commands
+from discord.ext import commands
+
+# IMPORTS - internal
+import loadconfig
 
 # CONSTANTS
-BOT_TOKEN = ""
-COMMAND_PREFIX = ""
+
 
 # INIT
-bot = commands.Bot(command_prefix=COMMAND_PREFIX, description="Holy Goddess Aqua!")
+bot = commands.Bot(
+    command_prefix=loadconfig.__prefix__,
+    description="Holy Goddess Aqua!"
+    )
 
-inital_extensions = [
-        "cogs.admin",
-        "cogs.general",
-        "cogs.welcome"
-        ]
-
-if __name__ == "__main__":
-    for extension in inital_extensions:
-        bot.load_extension(extension)
+for cog in loadconfig.__cogs__:
+    try:
+        bot.load_extension(cog)
+    except Exception:
+        print(f"Error while trying to load cog {cog}")
 
 # BOT
 # https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
@@ -36,11 +37,11 @@ async def on_ready():
         Version: {discord.__version__}\n
         """)
 
-    status = f"Hentai | {COMMAND_PREFIX}aquabot"
+    status = f"Hentai | {loadconfig.__prefix__}aquabot"
     activity = discord.Activity(name=status, type=discord.ActivityType.watching)
     await bot.change_presence(activity=activity)
 
     print(f"AquaBot is ready!\n")
 
 
-bot.run(BOT_TOKEN, bot=True, reconnect=True)
+bot.run(loadconfig.__token__, bot=True, reconnect=True)

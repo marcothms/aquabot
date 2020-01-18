@@ -19,7 +19,7 @@ class WelcomeCog(commands.Cog):
 
         channel = member.guild.system_channel
         text = f"Welcome {member.mention} to our useless Discord!"
-        if channel is Not None:
+        if channel is not None:
             await channel.send(text)
 
 
@@ -29,7 +29,7 @@ class WelcomeCog(commands.Cog):
             )
     async def hello(self, ctx):
 
-        await ctx.send(f"Hello {ctx.author}!")
+        await ctx.send(f"Hello {ctx.author.mention}!")
 
 # COG ENDING
 def setup(bot):
