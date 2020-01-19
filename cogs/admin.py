@@ -12,16 +12,17 @@ import discord
 from discord.ext import commands
 
 # COG INIT
-class AdminCog(commands.Cog):
+class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
 # COG BODY
-    # used as "load cogs.COGNAME"
     @commands.command(name="load", hidden=True)
     @commands.is_owner()
     async def load(self, ctx, *, cog: str):
-
+        """
+        Used as 'load cogs.COGNAME'
+        """
         try:
             self.bot.load_extension(cog)
         except Exception as e:
@@ -30,11 +31,12 @@ class AdminCog(commands.Cog):
             await ctx.send('**`SUCCESS`**')
 
 
-    # used as "unload cogs.COGNAME"
     @commands.command(name="unload", hidden=True)
     @commands.is_owner()
     async def unload(self, ctx, *, cog: str):
-
+        """
+        Used as 'unload cogs.COGNAME' 
+        """
         try:
             self.bot.unload_extension(cog)
         except Exception as e:
@@ -43,11 +45,12 @@ class AdminCog(commands.Cog):
             await ctx.send('**`SUCCESS`**')
 
 
-    # used as "reload cogs.COGNAME"
     @commands.command(name="reload", hidden=True)
     @commands.is_owner()
     async def reload(self, ctx, *, cog: str):
-
+        """
+        Used as 'reload cogs.COGNAME'
+        """
         try:
             self.bot.unload_extension(cog)
             self.bot.load_extension(cog)
@@ -59,4 +62,4 @@ class AdminCog(commands.Cog):
 
 # COG ENDING
 def setup(bot):
-    bot.add_cog(AdminCog(bot))
+    bot.add_cog(Admin(bot))

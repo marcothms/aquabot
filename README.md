@@ -1,9 +1,8 @@
 ![Avatar](img/avatar.png)
-
-AquaBot
+![Slogan](img/aquabot.png)
 =======
 
-[![discordpy](https://img.shields.io/badge/python-3.7-blue.svg)](https://github.com/Rapptz/discord.py)
+[![discordpy](https://img.shields.io/badge/discordpy-Core-blue)](https://github.com/Rapptz/discord.py)
 [![Discord Server](https://img.shields.io/badge/Support-Discord%20Server-blue.svg)](https://discordapp.com/invite/HbYfyJT)
 
 This bot is my first personal project so expect some minor (or bigger) problems
@@ -16,10 +15,15 @@ Support and Report requests are handled via Discord (Link above).
 Installation
 ------------
 
-Use `pip install discord.py` to install the latest version of discord.py.
+Use `pip install discord.py[voice]` to install the latest version of discord.py.
 
 Then, after cloning this repository with
 `git clone https://github.com/crammk/aquabot`, you can run the `aquabot.py`.
+
+Commands
+------
+
+# TODO
 
 Config
 ------

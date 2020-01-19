@@ -4,46 +4,49 @@
 # https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 #
 
-# IMPORTS
+# IMPORTS - external
 import discord
 from discord.ext import commands
 
 # COG INIT
-class GeneralCog(commands.Cog):
+class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
 # COG BODY
-    @commands.command(
-            name="invitelink",
-            description="Sends the invite link",
-            aliases=["invite"]
-            )
-    async def invite_link(self, ctx):
+    @commands.command(name="about")
+    async def about(self, ctx):
+        """
+        Prints some information about myself
+        """
+        embed = discord.Embed(colour=discord.Colour.blue())
 
-        # TODO fetch this from config so more servers are supported
-        link = "Here is our invite link: https://discordapp.com/invite/HbYfyJT"
-        await ctx.send(link)
+        embed.add_field(name="test", value="test2")
+
+        embed.set_footer(text="footer", icon_url="img/avatar.png")
+        
+
+        await ctx.send(embed=embed)
 
 
-    @commands.command(
-            name="pat",
-            description="Pats the selected user"
-            )
+
+    @commands.command(name="pat")
     @commands.guild_only()
     async def pat(self, ctx, target: str):
-
+        """
+        Let's you pat a selected user
+        """
         author = ctx.message.author
         if target is None:
             response = "No one to pat..."
-        elif target == "Noel":
+        elif target.capitalize() == "Noel":
             response = "NNN-GYAAAA!"
         else:
-            response = f"{target.mention} got pat by {author.mention}"
+            response = f"{target} got pat by {author.mention}"
 
         await ctx.send(response)
 
 
 # COG ENDING
 def setup(bot):
-    bot.add_cog(GeneralCog(bot))
+    bot.add_cog(General(bot))

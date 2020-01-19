@@ -9,7 +9,7 @@ import discord
 from discord.ext import commands
 
 # COG INIT
-class FooCog(commands.Cog):
+class Foo(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -17,4 +17,4 @@ class FooCog(commands.Cog):
 
 # COG ENDING
 def setup(bot):
-    bot.add_cog(FooCog(bot))
+    bot.add_cog(Foo(bot))
