@@ -1,10 +1,9 @@
-#################################
-###  AquaBot created by Marc  ###
-###      Aqua Best Girl!      ###
-#################################
+"""
+AquaBot created by Marc.
 
-# This project uses discordpy
-# https://discordpy.readthedocs.io/en/latest/intro.html
+This project uses discordpy:
+https://discordpy.readthedocs.io/en/latest/intro.html
+"""
 
 # IMPORTS - external
 import discord

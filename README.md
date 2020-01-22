@@ -29,8 +29,8 @@ The following commands assume that `.` is your default prefix.
 There are currently two command, which help the user to naviagte the bot's
 commands:
 
-`.aquabot` shows a short introduction
-`.help` shows a list of all commands (A custom help message is WIP)
++ `.aquabot` shows a short introduction
++ `.help` shows a list of all commands (A custom help message is WIP)
 
 Config
 ------

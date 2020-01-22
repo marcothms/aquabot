@@ -1,8 +1,9 @@
-#
-# A Cog thats deals with welcoming new users etc.
-#
-# https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-#
+"""
+Welcoming new users etc.
+
+https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+"""
+
 
 # IMPORTS
 import discord

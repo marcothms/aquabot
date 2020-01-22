@@ -1,5 +1,5 @@
 """
-This framework can be used to create new Cogs, remember to add them in the config
+Some anime-related commands
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
@@ -9,7 +9,7 @@ import discord
 from discord.ext import commands
 
 # COG INIT
-class Foo(commands.Cog):
+class Adnime(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -17,4 +17,4 @@ class Foo(commands.Cog):
 
 # COG ENDING
 def setup(bot):
-    bot.add_cog(Foo(bot))
+    bot.add_cog(Adnime(bot))

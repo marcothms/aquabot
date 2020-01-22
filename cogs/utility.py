@@ -1,8 +1,8 @@
-#
-# This Cog adds some utility commands
-#
-# https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-#
+"""
+Some nice utility
+
+https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+"""
 
 # IMPORTS
 import discord
@@ -23,6 +23,24 @@ class Utility(commands.Cog):
         # TODO fetch this from config so more servers are supported
         link = "Here is our invite link: https://discordapp.com/invite/HbYfyJT"
         await ctx.send(link)
+
+
+    @commands.command(name="pat")
+    @commands.guild_only()
+    async def pat(self, ctx, target: str):
+        """
+        Let's you pat a selected user
+        """
+        author = ctx.message.author
+        if target is None:
+            response = "No one to pat..."
+        elif target.capitalize() == "Noel":
+            response = "NNN-GYAAAA!"
+        else:
+            response = f"{target} got pat by {author.mention}"
+
+        await ctx.send(response)
+
 
 # COG ENDING
 def setup(bot):

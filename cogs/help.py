@@ -1,8 +1,8 @@
-#
-# Cog for a custom Help Command
-#
-# https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-#
+"""
+Some help for the users
+
+https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+"""
 
 # IMPORTS - exter
 import discord
@@ -23,7 +23,7 @@ class Help(commands.Cog):
         I'm the usele... divine AquaBot!
         If you need help, try using the `help` command!
         """
-
+        
         await ctx.send(response)
 
 

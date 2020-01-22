@@ -1,8 +1,8 @@
-#
-# A Cog that add some general commands
-#
-# https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-#
+"""
+Some general commands
+
+https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+"""
 
 # IMPORTS - external
 import discord
@@ -27,24 +27,6 @@ class General(commands.Cog):
         
 
         await ctx.send(embed=embed)
-
-
-
-    @commands.command(name="pat")
-    @commands.guild_only()
-    async def pat(self, ctx, target: str):
-        """
-        Let's you pat a selected user
-        """
-        author = ctx.message.author
-        if target is None:
-            response = "No one to pat..."
-        elif target.capitalize() == "Noel":
-            response = "NNN-GYAAAA!"
-        else:
-            response = f"{target} got pat by {author.mention}"
-
-        await ctx.send(response)
 
 
 # COG ENDING

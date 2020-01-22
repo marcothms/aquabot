@@ -6,6 +6,14 @@
 # "load", "unload", "reload"
 # https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
 #
+"""
+Admin commands, that can be used from within the chat
+
+https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+
+"load", "unload", "reload"
+https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
+"""
 
 # IMPORTS
 import discord
