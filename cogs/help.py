@@ -1,5 +1,6 @@
 """
-Some help for the users
+Some help for the users:
+    - aquabot
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
@@ -14,16 +15,15 @@ class Help(commands.Cog):
         self.bot = bot
 
 # COG BODY
-    @commands.command( name="aquabot")
+    @commands.command(name="aquabot")
     async def aquabot(self, ctx):
         """
         Sends a short help for new users
         """
         response = """
-        I'm the usele... divine AquaBot!
+        I'm the usele... divine AquaBot!\n
         If you need help, try using the `help` command!
         """
-        
         await ctx.send(response)
 
 

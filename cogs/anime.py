@@ -1,5 +1,6 @@
 """
-Some anime-related commands
+Some anime-related commands:
+
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
@@ -9,7 +10,7 @@ import discord
 from discord.ext import commands
 
 # COG INIT
-class Adnime(commands.Cog):
+class Anime(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -17,4 +18,4 @@ class Adnime(commands.Cog):
 
 # COG ENDING
 def setup(bot):
-    bot.add_cog(Adnime(bot))
+    bot.add_cog(Anime(bot))

@@ -1,5 +1,7 @@
 """
-Some nice utility
+Some (more or less) handy utility:
+    - invitelink
+    - pat
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
@@ -19,7 +21,6 @@ class Utility(commands.Cog):
         """
         Sends the server's invitelink to chat
         """
-
         # TODO fetch this from config so more servers are supported
         link = "Here is our invite link: https://discordapp.com/invite/HbYfyJT"
         await ctx.send(link)

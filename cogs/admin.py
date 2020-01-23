@@ -1,17 +1,10 @@
-#
-# A Cog that add admin command, usable within the Discord Client
-#
-# https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-#
-# "load", "unload", "reload"
-# https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
-#
 """
-Admin commands, that can be used from within the chat
+Admin commands, that can be used from within the chat:
+    - load
+    - unload
+    - reload
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-
-"load", "unload", "reload"
 https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
 """
 

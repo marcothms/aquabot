@@ -1,5 +1,6 @@
 """
-Some general commands
+Some general commands:
+    - about
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
@@ -7,6 +8,9 @@ https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 # IMPORTS - external
 import discord
 from discord.ext import commands
+
+# IMPORTS - internal
+from aquabot import metadata
 
 # COG INIT
 class General(commands.Cog):
@@ -21,10 +25,18 @@ class General(commands.Cog):
         """
         embed = discord.Embed(colour=discord.Colour.blue())
 
-        embed.add_field(name="test", value="test2")
+        embed.add_field(name="Bot Name", value=metadata["name"], inline=True)
+        embed.add_field(name="Admin", value=metadata["admin"], inline=True)
+        embed.add_field(name="Prefix", value=metadata["prefix"], inline=True)
+        embed.add_field(name="discord.py Version", value=metadata["discordpy_version"], inline=True)
+        embed.add_field(name="python Version", value=metadata["python_version"], inline=True)
+        embed.add_field(name="OS", value=metadata["os"], inline=True)
 
-        embed.set_footer(text="footer", icon_url="img/avatar.png")
-        
+        footer_text = """
+        This Bot is an OpenSource project by Marc and can be found on
+        github.com/CramMK/aquabot
+        """
+        embed.set_footer(text=footer_text, icon_url="img/avatar.png")
 
         await ctx.send(embed=embed)
 

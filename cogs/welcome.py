@@ -1,5 +1,7 @@
 """
-Welcoming new users etc.
+Welcoming new users etc.:
+    - listener: join
+    - hello
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
@@ -28,8 +30,11 @@ class Welcome(commands.Cog):
 
     @commands.command(name="hello")
     async def hello(self, ctx):
-
+        """
+        Sends a simple reply to the user
+        """
         await ctx.send(f"Hello {ctx.author.mention}!")
+
 
 # COG ENDING
 def setup(bot):

@@ -11,15 +11,34 @@ here and there.
 Also note that this bot is still in its very early stages, so there is no
 guaranty that all features work!
 
-Support and Report requests are handled via Discord (Link above).
+Support and report requests are handled via Discord (Link above).
 
-Installation
-------------
+Installation - Docker
+---------------------
 
-Use `pip install discord.py[voice]` to install the latest version of discord.py.
+`WIP!`
 
-Then, after cloning this repository with
-`git clone https://github.com/crammk/aquabot`, you can run the `aquabot.py`.
++ Clone this repository with `git clne https://github.com/CramMK/aquabot`
+
++ Create a `config/config.py`, using the `config/config_example.py` as a
+guideline
+
++ Launch the Container
+
+Installation - pip
+------------------
+
++ Clone this repository with `git clone https://github.com/CramMK/aquabot`
+
++ **OPTIONAL:** A virtual environment can be created at this point
+
++ Use `pip install --user -r requirements.txt` to install all dependencies
+needed for the bot
+
++ Create a `config/config.py`, using the `config/config_example.py` as a
+guideline
+
++ Finally, run `python aquabot`
 
 Commands
 ------
@@ -41,5 +60,4 @@ To use the bot you need to add a `config/config.py` file. For reference, see
 Requirements
 ------------
 
-python>=3.6.0
-discord.py>=1.0.0a
++ python>=3.6.0
