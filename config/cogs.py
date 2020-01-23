@@ -10,5 +10,6 @@ __cogs__ = [
         "cogs.welcome",
         "cogs.help",
         "cogs.utility",
-        "cogs.anime"
+        "cogs.anime",
+        "cogs.voice"
         ]

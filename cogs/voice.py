@@ -20,55 +20,49 @@ class Voice(commands.Cog):
 # COG BODY
     @commands.command(name="join", aliases=["j"])
     @commands.guild_only()
-        async def join(self, ctx):
-            """
-            Tries to join the author's current voice channel
-            """
-            channel = ctx.message.author.voice.channel
-            if not channel:
-                ctx.send:("You're not connected to a voice channel!")
-                return
+    async def join(self, ctx):
+        """
+        Tries to join the author's current voice channel
+        """
+        channel = ctx.message.author.voice.channel
+        if not channel:
+            ctx.send:("You're not connected to a voice channel!")
+            return
 
-            voice = get(bot.voice_clients, guild=ctx.guild)
+        voice = get(self.bot.voice_clients, guild=ctx.guild)
 
-            if voice and voice.is_connected():
-                await voice.move_to(channel)
-            else:
-                voice = await channel.connect()
-                await ctx.send(f"`Joined {channel}!`")
-""" useless?
-            await voice.disconnect()
-
-            if voice and voice.is_connected():
-                await voice.move_to(channel)
-            else:
-                voice = await channel.connect()
+        if voice and voice.is_connected():
+            await voice.move_to(channel)
+            await ctx.send(f"`Move to {channel}!`")
+        else:
+            voice = await channel.connect()
             await ctx.send(f"`Joined {channel}!`")
-"""
+
 
     @commands.command(name="leave", aliases=["quit, l"])
     @commands.guild_only()
-        async def leave(self, ctx):
-            """
-            Leaves the voice channel, if connected
-            """
-            channel = ctx.message.author.voice.channel
-            voice = get(bot.voice_clients, guild=ctx.guild)
+    async def leave(self, ctx):
+        """
+        Leaves the voice channel, if connected
+        """
+        channel = ctx.message.author.voice.channel
+        voice = get(self.bot.voice_clients, guild=ctx.guild)
 
-            if voice and voice.is_connected():
-                await voice.disconnect()
-                await ctx.send(f"`Left {channel}!`")
-            else:
-                ctx.send("I'm not connected to a channel!")
+        if voice and voice.is_connected():
+            await voice.disconnect()
+            await ctx.send(f"`Left {channel}!`")
+        else:
+            await ctx.send("I'm not connected to a channel!")
+
 
     @commands.command(name="play", aliases=["p"])
     @commands.guild_only()
-        async def play(self, ctx, url: str):
-            """
-            Plays music from YT link specifies
-            """
-            # TODO
-            ctx.send("This module is not working yet!")
+    async def play(self, ctx, url: str):
+        """
+        Plays music from YT link specifies
+        """
+        # TODO
+        ctx.send("This module is not working yet!")
 
 
 # COG ENDING

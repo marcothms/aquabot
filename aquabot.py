@@ -9,6 +9,7 @@ https://discordpy.readthedocs.io/en/latest/intro.html
 import discord
 from discord.ext import commands
 import logging
+import platform
 
 # IMPORTS - internal
 import loadconfig
@@ -16,9 +17,9 @@ import loadconfig
 # LOGGING
 logger = logging.getLogger("discord")
 # https://docs.python.org/3/library/logging.html#levels
-logger.setlevel(logging.INFO)
+logger.setLevel(logging.INFO)
 handler = logging.FileHandler(
-        filename="discord_%(asctime)s.log",
+        filename="discord.log",
         encoding="utf-8",
         mode="w"
         )
@@ -26,16 +27,6 @@ handler.setFormatter(
         logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s")
         )
 logger.addHandler(handler)
-
-# SOME DATA THAT CAN BE USED LATER
-metadata = {
-        "name": f"{bot.user.name} - {bot.user.id}",
-        "admin": f"{self.bot.AppInfo.owner}",
-        "prefix": f"{loadconfig.__token__}",
-        "discordpy_version": f"{discord.__version__}",
-        "python_version": f"{platform.python_version}",
-        "os": f"{platform.system()} {platform.release()} {platform.version()}"
-}
 
 # INIT THE BOT
 bot = commands.Bot(
@@ -61,14 +52,15 @@ async def on_ready():
     Inspired by:
     https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
     """
+    bot.AppInfo = await bot.application_info()
 
     startup = f"""
-    Bot Name: {metadata["name"]}\n
-    Admin: {metadata["admin"]}\n
-    Command Prefix: {metadata["prefix"]}\n
-    discord.py Version: {metadata["discordpy_version"]}\n
-    python Version: {metadata["python_version"]}\n
-    OS: {metadata["os"]}\n
+    Bot Name: {bot.user.name} - {bot.user.id}\n
+    Owner: {bot.AppInfo.owner}\n
+    Command Prefix: {loadconfig.__prefix__}\n
+    discord.py Version: {discord.__version__}\n
+    python Version: {platform.python_version()}\n
+    OS: {platform.system()} {platform.release()} {platform.version()}\n
     """
     print(startup)
 

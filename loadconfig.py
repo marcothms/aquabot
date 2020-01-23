@@ -4,6 +4,8 @@ Gather all config data into one file
 loadconfig.py then gets called in aquabot.py
 """
 
+__avatar__ = "https://i.imgur.com/mskM9dH.png"
+
 from config.cogs import __cogs__
 
 try:

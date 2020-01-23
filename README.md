@@ -18,7 +18,7 @@ Installation - Docker
 
 `WIP!`
 
-+ Clone this repository with `git clne https://github.com/CramMK/aquabot`
++ Clone this repository with `git clone https://github.com/CramMK/aquabot`
 
 + Create a `config/config.py`, using the `config/config_example.py` as a
 guideline
