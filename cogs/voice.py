@@ -5,12 +5,16 @@ Make Aqua be able to join voice channel and play audio:
     - play
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+https://stackoverflow.com/questions/56031159/discord-py-rewrite-what-is-the-source-for-youtubedl-to-play-music
 """
 
 # IMPORTS
 import discord
 from discord.ext import commands
 from discord.utils import get
+from discord import FFmpegPCMAudio
+import os
+import youtube_dl
 
 # COG INIT
 class Voice(commands.Cog):
@@ -26,14 +30,14 @@ class Voice(commands.Cog):
         """
         channel = ctx.message.author.voice.channel
         if not channel:
-            ctx.send:("You're not connected to a voice channel!")
+            ctx.send("You're not connected to a voice channel!")
             return
 
         voice = get(self.bot.voice_clients, guild=ctx.guild)
 
         if voice and voice.is_connected():
             await voice.move_to(channel)
-            await ctx.send(f"`Move to {channel}!`")
+            await ctx.send(f"`Moved to {channel}!`")
         else:
             voice = await channel.connect()
             await ctx.send(f"`Joined {channel}!`")
@@ -62,7 +66,31 @@ class Voice(commands.Cog):
         Plays music from YT link specifies
         """
         # TODO
-        ctx.send("This module is not working yet!")
+        try:
+            if os.path.isfile("song.mp3"):
+                os.remove("song.mp3")
+        except PermissionError:
+            await ctx.send("Wait for the current song to end or use the `stop`command")
+            return
+
+        voice = get(bot.voice_clients, guild=ctx.guild)
+        youtube_dl_opts = {
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+        }
+        with youtube_dl.YouTubeDL(youtube_dl_opts) as ydl:
+            ydl.download([url])
+        for file in os.listdir("./"):
+            if file.endswith(".mp3"):
+                os.rename(file, "song.mp3")
+
+        voice.play(discord.FFmpegPCMAudio("song.mp3"))
+        voice.volume=25
+        voice.is_playing()
 
 
 # COG ENDING

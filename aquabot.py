@@ -9,7 +9,9 @@ https://discordpy.readthedocs.io/en/latest/intro.html
 import discord
 from discord.ext import commands
 import logging
+from datetime import datetime
 import platform
+import random
 
 # IMPORTS - internal
 import loadconfig
@@ -19,7 +21,7 @@ logger = logging.getLogger("discord")
 # https://docs.python.org/3/library/logging.html#levels
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler(
-        filename="discord.log",
+        filename="logs/discord-{%Y-%m-%d_%H-%M}.log".format(datetime.now()),
         encoding="utf-8",
         mode="w"
         )
@@ -43,6 +45,15 @@ for cog in loadconfig.__cogs__:
     else:
         print(f"SUCCESS: Loaded {cog}")
 
+# ACTIVITY
+async def activity():
+    while True: # Infinite Loop
+        new_activity = random.choice(loadconfig.__activity__)
+        status = f"{new_activity[1]} | {loadconfig.__prefix__}aquabot"
+        activity = discord.Activity(name=status, type=new_activity[0])
+        await bot.change_presence(activity=activity)
+        await asyncio.sleep(15) # Time in minutes
+
 # BOT STARTING EVENT
 @bot.event
 async def on_ready():
@@ -64,9 +75,7 @@ async def on_ready():
     """
     print(startup)
 
-    status = f"Hentai | {loadconfig.__prefix__}aquabot"
-    activity = discord.Activity(name=status, type=discord.ActivityType.watching)
-    await bot.change_presence(activity=activity)
+    activity_loop = asyncio.ensure_future(activity())
 
     print(f"AquaBot is ready!\n")
 

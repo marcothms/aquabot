@@ -1,4 +1,10 @@
-__pycache__/
+# own config file
 config/config.py
+
+# caches and build environment
+__pycache__/
 .vscode/
+
+# generated data from logging
+logs/
 *.log

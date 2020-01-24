@@ -26,6 +26,7 @@ class General(commands.Cog):
         """
         embed = discord.Embed(colour=discord.Colour.blue())
         embed.set_thumbnail(url=ctx.me.avatar_url)
+        embed.set_image(url=ctx.me.avatar_url)
 
         embed.add_field(name="Owner", value=self.bot.AppInfo.owner, inline=True)
         embed.add_field(name="Command Prefix", value=loadconfig.__prefix__, inline=True)

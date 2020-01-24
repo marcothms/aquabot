@@ -8,6 +8,8 @@ __avatar__ = "https://i.imgur.com/mskM9dH.png"
 
 from config.cogs import __cogs__
 
+from config.status import __activity__
+
 try:
     from config.config import __token__, __prefix__
 except ImportError as e:
