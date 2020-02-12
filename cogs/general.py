@@ -36,8 +36,7 @@ class General(commands.Cog):
 
         footer_text = (
             "This Bot is an OpenSource project by Marc and can be found "
-            "on github.com/CramMK/aquabot"
-        )
+            "on github.com/CramMK/aquabot")
         embed.set_footer(text=footer_text, icon_url=loadconfig.__avatar__)
 
         await ctx.send(embed=embed)

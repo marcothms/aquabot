@@ -23,18 +23,15 @@ logger.setLevel(logging.INFO)
 handler = logging.FileHandler(
         filename="logs/discord-{%Y-%m-%d_%H-%M}.log".format(datetime.now()),
         encoding="utf-8",
-        mode="w"
-        )
+        mode="w")
 handler.setFormatter(
-        logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s")
-        )
+        logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s"))
 logger.addHandler(handler)
 
 # INIT THE BOT
 bot = commands.Bot(
     command_prefix=loadconfig.__prefix__,
-    description="Holy Goddess Aqua!"
-    )
+    description="Holy Goddess Aqua!")
 
 # LOAD COGS SPECIFIED IN 'config/cogs.py'
 for cog in loadconfig.__cogs__:
@@ -83,5 +80,4 @@ async def on_ready():
 bot.run(
         loadconfig.__token__,
         bot=True,
-        reconnect=True
-        )
+        reconnect=True)
