@@ -15,11 +15,13 @@ try:
     with open("config/config.yml") as file:
         config = yaml.safe_load(file)
 
-    __token__ = config['token']
-    __prefix__ = config['prefix']
+        __token__ = config['token']
+        __prefix__ = config['prefix']
 
 except yaml.YAMLError as error:
     print(f"Error while parsing: {error}")
+except FileNotFoundError as error:
+    print(f"Error, please create a config file: {error}")
 
 try:
     from config.cogs import __cogs__
