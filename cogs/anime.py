@@ -32,8 +32,9 @@ class Anime(commands.Cog):
     @commands.command(name="waifumedia")
     async def waifumedia(self, ctx, waifu: str):
         """
-        Sends a random pic of a waifu (list in config/media.py)
+        Sends a random pic of a waifu
         """
+        # config/media.py
         try:
             media = random.choice(loadconfig.__media_waifu__[waifu])
             await ctx.send(media)

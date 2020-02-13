@@ -20,21 +20,19 @@ class Utility(commands.Cog):
 
 # COG BODY
     @commands.command(name="invitelink", aliases=["invite"])
-    async def invite_link(self, ctx, age: int, uses: int, unique: bool):
+    async def invite_link(self, ctx):
         """
         Sends the server's invitelink to chat
         """
-        if age is None:
-            age = 60
-        if uses is None:
-            uses = 100
-        if unique is None:
-            unique = True
+        age = 60 * 10
+        uses = 100
+        unique = True
 
-        link = await bot.create_invite(
+        channel = ctx.message.channel
+        link = await channel.create_invite(
                 max_age = age,
                 max_uses = uses,
-                unique = uses,
+                unique = unique,
                 reason = "Created by AquaBot")
 
         link_embed = discord.Embed(color=discord.Colour.blue())
@@ -44,7 +42,7 @@ class Utility(commands.Cog):
                 inline=True)
         link_embed.set_footer(
                 text=f"Age: {age}, Uses: {uses}, Unique: {unique}",
-                icon_url=loadconfig.__avater__
+                icon_url=loadconfig.__avatar__
                 )
 
         await ctx.send(embed=link_embed)

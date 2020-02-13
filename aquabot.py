@@ -50,7 +50,7 @@ async def activity():
         status = f"{new_activity[1]} | {loadconfig.__prefix__}aquabot"
         activity = discord.Activity(name=status, type=new_activity[0])
         await bot.change_presence(activity=activity)
-        await asyncio.sleep(10) # Time in minutes
+        await asyncio.sleep(10*60) # Time in minutes
 
 # BOT STARTING EVENT
 @bot.event

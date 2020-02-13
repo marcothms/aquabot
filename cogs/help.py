@@ -22,9 +22,8 @@ class Help(commands.Cog):
         """
         response = (
                 "I'm the usele... divine AquaBot!\n"
-                "If you need help. try using the `help` command!"
-                )
-       await ctx.send(response)
+                "If you need help. try using the `help` command!")
+        await ctx.send(response)
 
 
 # COG ENDING
