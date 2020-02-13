@@ -1,5 +1,6 @@
 # own config file
-config/config.py
+config.py #deprecated
+config.yml
 
 # caches and build environment
 __pycache__/

@@ -3,9 +3,9 @@ Media, which can be accessed from the bot.
 """
 
 # Exports
-__anime_media__ = [anime_gifs, anime_pics]
+__media_anime__ = [gifs_anime, pics_anime]
 
-__waifu_media__ = {
+__media_waifu__ = {
         "aqua": waifu_aqua,
         "meugmin": waifu_megumin,
         "akeno": waifu_akeno,
@@ -13,9 +13,9 @@ __waifu_media__ = {
         }
 
 # Internal lists
-anime_gifs = []
+gifs_anime = []
 
-anime_pics = [
+pics_anime = [
         "https://i.imgur.com/4xnJN9x.png",
         ]
 

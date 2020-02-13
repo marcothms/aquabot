@@ -26,7 +26,7 @@ class Welcome(commands.Cog):
         text = f"Welcome {member.mention} to our useless Discord!"
         if channel is not None:
             await channel.send(text)
-
+            await message.add_reaction("\N{THUMBS UP SIGN}")
 
     @commands.command(name="hello")
     async def hello(self, ctx):

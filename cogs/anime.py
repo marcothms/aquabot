@@ -25,8 +25,8 @@ class Anime(commands.Cog):
         Sends a random anime gif or pic
         """
         # Choose either a gif or a pic -> config/media.py
-        media_type = random.choice(loadconfig.__anime_media__)
-        media = random.choice(media)
+        media_type = random.choice(loadconfig.__media_anime__)
+        media = random.choice(media_type)
         await ctx.send(media)
 
     @commands.command(name="waifumedia")
@@ -34,10 +34,8 @@ class Anime(commands.Cog):
         """
         Sends a random pic of a waifu (list in config/media.py)
         """
-        # Dictionary
-        waifus = loadconfig.__waifu_media__
         try:
-            media = random.choice(waifus.get(waifu))
+            media = random.choice(loadconfig.__media_waifu__[waifu])
             await ctx.send(media)
         except KeyError as error:
             text = (

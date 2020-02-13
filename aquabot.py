@@ -30,8 +30,8 @@ logger.addHandler(handler)
 
 # INIT THE BOT
 bot = commands.Bot(
-    command_prefix=loadconfig.__prefix__,
-    description="Holy Goddess Aqua!")
+        command_prefix=loadconfig.__prefix__,
+        description="Holy Goddess Aqua!")
 
 # LOAD COGS SPECIFIED IN 'config/cogs.py'
 for cog in loadconfig.__cogs__:
@@ -49,7 +49,7 @@ async def activity():
         status = f"{new_activity[1]} | {loadconfig.__prefix__}aquabot"
         activity = discord.Activity(name=status, type=new_activity[0])
         await bot.change_presence(activity=activity)
-        await asyncio.sleep(15) # Time in minutes
+        await asyncio.sleep(10) # Time in minutes
 
 # BOT STARTING EVENT
 @bot.event

@@ -9,7 +9,7 @@ AquaBot
 This bot is my first personal project so expect some minor (or bigger) problems
 here and there.
 Also note that this bot is still in its very early stages, so there is no
-guaranty that all features work!
+guarantee that all features work!
 
 Support and report requests are handled via Discord (Link above).
 
@@ -20,7 +20,7 @@ Installation - Docker
 
 + Clone this repository with `git clone https://github.com/CramMK/aquabot`
 
-+ Create a `config/config.py`, using the `config/config_example.py` as a
++ Create a `config` file as described below
 guideline
 
 + Launch the Container
@@ -35,10 +35,10 @@ Installation - pip
 + Use `pip install --user -r requirements.txt` to install all dependencies
 needed for the bot
 
-+ Create a `config/config.py`, using the `config/config_example.py` as a
++ Create a `config` file as described below
 guideline
 
-+ Finally, run `python aquabot`
++ Finally, run `python3 aquabot`
 
 Commands
 ------
@@ -54,8 +54,8 @@ commands:
 Config
 ------
 
-To use the bot you need to add a `config/config.py` file. For reference, see
-`config/config_example.py`.
+To use the bot you need to add a `config/config.yml` file. For reference, see
+`config/config_example.yml`.
 
 Requirements
 ------------

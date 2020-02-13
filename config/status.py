@@ -12,4 +12,3 @@ __activity__ = [
         (discord.ActivityType.streaming, "Hentai")
         (discord.ActivityType.custom, "mizu")
         ]
-}

@@ -6,9 +6,12 @@ Some (more or less) handy utility:
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
 
-# IMPORTS
+# IMPORTS - external
 import discord
 from discord.ext import commands
+
+# IMPORTS - internal
+import loadconfig
 
 # COG INIT
 class Utility(commands.Cog):
@@ -17,13 +20,34 @@ class Utility(commands.Cog):
 
 # COG BODY
     @commands.command(name="invitelink", aliases=["invite"])
-    async def invite_link(self, ctx):
+    async def invite_link(self, ctx, age: int, uses: int, unique: bool):
         """
         Sends the server's invitelink to chat
         """
-        # TODO fetch this from config so more servers are supported
-        link = "Here is our invite link: https://discordapp.com/invite/HbYfyJT"
-        await ctx.send(link)
+        if age is None:
+            age = 60
+        if uses is None:
+            uses = 100
+        if unique is None:
+            unique = True
+
+        link = await bot.create_invite(
+                max_age = age,
+                max_uses = uses,
+                unique = uses,
+                reason = "Created by AquaBot")
+
+        link_embed = discord.Embed(color=discord.Colour.blue())
+        link_embed.add_field(
+                name="Here's and invite to our server:",
+                value=link,
+                inline=True)
+        link_embed.set_footer(
+                text=f"Age: {age}, Uses: {uses}, Unique: {unique}",
+                icon_url=loadconfig.__avater__
+                )
+
+        await ctx.send(embed=link_embed)
 
 
     @commands.command(name="pat")
