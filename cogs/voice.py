@@ -154,7 +154,7 @@ class Voice(commands.Cog):
                     player,
                     after=lambda e: print('Player error: %s' % e) if e else None)
 
-            player_embed = discord.Embed(colour.discord.Colour.blue())
+            player_embed = discord.Embed(colour=discord.Colour.blue())
             player_embed.set_thumbal(url=player.thumbnail)
 
             player_embed.add_field(name="Song", value=player.title)
