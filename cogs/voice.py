@@ -8,7 +8,7 @@ https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 https://stackoverflow.com/questions/56060614/how-to-make-a-discord-bot-play-youtube-audio
 """
 
-# IMPORTS
+# IMPORTS - external
 import discord
 from discord.ext import commands
 from discord.utils import get
@@ -16,6 +16,9 @@ from discord import FFmpegPCMAudio
 import os
 import glob
 import youtube_dl
+
+# IMPORTS - internal
+import loadconfig
 
 # COG INIT
 class Voice(commands.Cog):
@@ -25,7 +28,7 @@ class Voice(commands.Cog):
 # COG BODY
     @commands.command(name="join", aliases=["j"])
     @commands.guild_only()
-    async def join(self, ctx):
+    async def join(self, ctx, *):
         """
         Tries to join the author's current voice channel
         """
@@ -46,7 +49,7 @@ class Voice(commands.Cog):
 
     @commands.command(name="leave", aliases=["quit"])
     @commands.guild_only()
-    async def leave(self, ctx):
+    async def leave(self, ctx, *):
         """
         Leaves the voice channel, if connected
         """
@@ -65,7 +68,7 @@ class Voice(commands.Cog):
 
     @commands.command(name="skip")
     @commands.guild_only()
-    async def skip(self, ctx):
+    async def skip(self, ctx, *):
         """
         Skips the current song: WIP!
         """
@@ -82,12 +85,29 @@ class Voice(commands.Cog):
 
     @commands.command(name="play", aliases=["p"])
     @commands.guild_only()
-    async def play(self, ctx, *query: str):
+    async def play(self, ctx, *query: str, *):
         """
         Plays music from YouTube
         """
         # concat query tuple into string
         url = " ".join(query)
+
+        # join channel
+        channel = ctx.message.author.voice.channel
+        voice = get(self.bot.voice_clients, guild=ctx.guild)
+
+        if not channel:
+            ctx.send("You're not connected to a voice channel!")
+        if voice and voice.is_connected():
+            warning = (
+                    "I'm already connected to another channel!\n"
+                    f"Use `{loadconfig.__prefix__}join` for force-join.\n"
+                    )
+            await ctx.send(warning)
+        else:
+            voice = await channel.connect()
+            await ctx.send(f"`Joined {channel}!`")
+
 
         youtube_dl.utils.bug_reports_message = lambda: ''
         ytdl_format_options = {
@@ -146,8 +166,6 @@ class Voice(commands.Cog):
                 filename = data['url'] if stream else ytdl.prepare_filename(data)
                 return cls(discord.FFmpegPCMAudio(filename, **ffmpeg_options), data=data)
 
-        voice = get(self.bot.voice_clients, guild=ctx.guild)
-
         async with ctx.typing():
             player = await YTDLSource.from_url(url, loop=self.bot.loop)
             voice.play(
@@ -155,11 +173,12 @@ class Voice(commands.Cog):
                     after=lambda e: print('Player error: %s' % e) if e else None)
 
             player_embed = discord.Embed(colour=discord.Colour.blue())
-            player_embed.set_thumbal(url=player.thumbnail)
+            player_embed.set_thumbnail(url=player.thumbnail)
 
             player_embed.add_field(name="Song", value=player.title)
             player_embed.add_field(name="Uploader", value=player.uploader)
 
+        await ctx.send("`:musical_note: Now playing: `")
         await ctx.send(player_embed)
 
     # End of YouTube Player
