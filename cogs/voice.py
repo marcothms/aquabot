@@ -14,6 +14,7 @@ from discord.ext import commands
 from discord.utils import get
 from discord import FFmpegPCMAudio
 import os
+import glob
 import youtube_dl
 
 # COG INIT
@@ -22,6 +23,12 @@ class Voice(commands.Cog):
         self.bot = bot
 
 # COG BODY
+    # Cleanup downloads
+    def remove_dls():
+        yt_files = glob.glob("youtube-*")
+        for f in yt_files:
+            os.remove(f)
+
     @commands.command(name="join", aliases=["j"])
     @commands.guild_only()
     async def join(self, ctx):
@@ -43,7 +50,7 @@ class Voice(commands.Cog):
             await ctx.send(f"`Joined {channel}!`")
 
 
-    @commands.command(name="leave", aliases=["quit, l"])
+    @commands.command(name="leave", aliases=["quit"])
     @commands.guild_only()
     async def leave(self, ctx):
         """
@@ -55,18 +62,37 @@ class Voice(commands.Cog):
         if voice and voice.is_connected():
             await voice.disconnect()
             await ctx.send(f"`Left {channel}!`")
+            # cleanup
+            remove_dls()
+        else:
+            await ctx.send("I'm not connected to a channel!")
+
+    @commands.command(name="skip")
+    @commands.guild_only()
+    async def skip(self, ctx):
+        """
+        Skips the current song: WIP!
+        """
+        channel = ctx.message.author.voice.channel
+        voice = get(self.bot.voice_clients, guild=ctx.guild)
+
+        if voice and voice.is_connected():
+            await ctx.send("`Skipping...`")
         else:
             await ctx.send("I'm not connected to a channel!")
 
 
     # Begin of YouTube Player
-    
+
     @commands.command(name="play", aliases=["p"])
     @commands.guild_only()
-    async def play(self, ctx, url: str):
+    async def play(self, ctx, *query: str):
         """
         Plays music from YouTube
         """
+        # concat query tuple into string
+        url = " ".join(query)
+
         youtube_dl.utils.bug_reports_message = lambda: ''
         ytdl_format_options = {
             'format': 'bestaudio/best',
@@ -102,7 +128,7 @@ class Voice(commands.Cog):
                 self.title = data.get('title')
                 self.thumbnail = data.get('thumbnail')
                 self.description = data.get('description')
-#                self.duration = self.parse_duration(int(data.get('duration')))
+                # self.duration = self.parse_duration(int(data.get('duration')))
                 self.tags = data.get('tags')
                 self.url = data.get('webpage_url')
                 self.views = data.get('view_count')
@@ -131,7 +157,14 @@ class Voice(commands.Cog):
             voice.play(
                     player,
                     after=lambda e: print('Player error: %s' % e) if e else None)
-        await ctx.send(f"Now playing: {player.title}")
+
+            player_embed = discord.Embed(color.discord.Colour.blue())
+            player_embed.set_thumbal(url=player.thumbnail)
+
+            player_embed.add_field(name="Song", value=player.title)
+            player_embed.add_field(name="Uploader", value=player.uploader)
+
+        await ctx.send(player_embed)
 
     # End of YouTube Player
 
