@@ -28,7 +28,7 @@ class Voice(commands.Cog):
 # COG BODY
     @commands.command(name="join", aliases=["j"])
     @commands.guild_only()
-    async def join(self, ctx, *):
+    async def join(self, ctx):
         """
         Tries to join the author's current voice channel
         """
@@ -49,7 +49,7 @@ class Voice(commands.Cog):
 
     @commands.command(name="leave", aliases=["quit"])
     @commands.guild_only()
-    async def leave(self, ctx, *):
+    async def leave(self, ctx):
         """
         Leaves the voice channel, if connected
         """
@@ -68,7 +68,7 @@ class Voice(commands.Cog):
 
     @commands.command(name="skip")
     @commands.guild_only()
-    async def skip(self, ctx, *):
+    async def skip(self, ctx):
         """
         Skips the current song: WIP!
         """
@@ -85,7 +85,7 @@ class Voice(commands.Cog):
 
     @commands.command(name="play", aliases=["p"])
     @commands.guild_only()
-    async def play(self, ctx, *query: str, *):
+    async def play(self, ctx, *query: str):
         """
         Plays music from YouTube
         """
