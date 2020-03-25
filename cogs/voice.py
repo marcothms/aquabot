@@ -23,12 +23,6 @@ class Voice(commands.Cog):
         self.bot = bot
 
 # COG BODY
-    # Cleanup downloads
-    def remove_dls():
-        yt_files = glob.glob("youtube-*")
-        for f in yt_files:
-            os.remove(f)
-
     @commands.command(name="join", aliases=["j"])
     @commands.guild_only()
     async def join(self, ctx):
@@ -63,7 +57,9 @@ class Voice(commands.Cog):
             await voice.disconnect()
             await ctx.send(f"`Left {channel}!`")
             # cleanup
-            remove_dls()
+            yt_files = glob.glob("youtube-*")
+            for f in yt_files:
+                os.remove(f)
         else:
             await ctx.send("I'm not connected to a channel!")
 
@@ -158,7 +154,7 @@ class Voice(commands.Cog):
                     player,
                     after=lambda e: print('Player error: %s' % e) if e else None)
 
-            player_embed = discord.Embed(color.discord.Colour.blue())
+            player_embed = discord.Embed(colour.discord.Colour.blue())
             player_embed.set_thumbal(url=player.thumbnail)
 
             player_embed.add_field(name="Song", value=player.title)
