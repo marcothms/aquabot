@@ -41,10 +41,10 @@ class Voice(commands.Cog):
 
         if voice and voice.is_connected():
             await voice.move_to(channel)
-            await ctx.send(f"`Moved to {channel}!`")
+            await ctx.send(f"Moved to {channel}!")
         else:
             voice = await channel.connect()
-            await ctx.send(f"`Joined {channel}!`")
+            await ctx.send(f"Joined {channel}!")
 
 
     @commands.command(name="leave", aliases=["quit"])
@@ -58,7 +58,7 @@ class Voice(commands.Cog):
 
         if voice and voice.is_connected():
             await voice.disconnect()
-            await ctx.send(f"`Left {channel}!`")
+            await ctx.send(f"Left {channel}!")
             # cleanup
             yt_files = glob.glob("youtube-*")
             for f in yt_files:
@@ -76,7 +76,7 @@ class Voice(commands.Cog):
         voice = get(self.bot.voice_clients, guild=ctx.guild)
 
         if voice and voice.is_connected():
-            await ctx.send("`Skipping...`")
+            await ctx.send("Skipping...")
         else:
             await ctx.send("I'm not connected to a channel!")
 
@@ -99,14 +99,11 @@ class Voice(commands.Cog):
         if not channel:
             ctx.send("You're not connected to a voice channel!")
         if voice and voice.is_connected():
-            warning = (
-                    "I'm already connected to another channel!\n"
-                    f"Use `{loadconfig.__prefix__}join` for force-join.\n"
-                    )
-            await ctx.send(warning)
+            await voice.move_to(channel)
+            await ctx.send(f"Moved to {channel}!")
         else:
             voice = await channel.connect()
-            await ctx.send(f"`Joined {channel}!`")
+            await ctx.send(f"Joined {channel}!")
 
 
         youtube_dl.utils.bug_reports_message = lambda: ''
@@ -178,8 +175,8 @@ class Voice(commands.Cog):
             player_embed.add_field(name="Song", value=player.title)
             player_embed.add_field(name="Uploader", value=player.uploader)
 
-        await ctx.send("`:musical_note: Now playing: `")
-        await ctx.send(player_embed)
+        await ctx.send(":musical_note: Now playing: ")
+        await ctx.send(embed=player_embed)
 
     # End of YouTube Player
 

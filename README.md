@@ -13,18 +13,6 @@ guarantee that all features work!
 
 Support and report requests are handled via Discord (Link above).
 
-Installation - Docker
----------------------
-
-`WIP!`
-
-+ Clone this repository with `git clone https://github.com/CramMK/aquabot`
-
-+ Create a `config` file as described below
-guideline
-
-+ Launch the Container
-
 Installation - pip
 ------------------
 
