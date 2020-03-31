@@ -20,7 +20,7 @@ Installation - pip
 
 + **OPTIONAL:** A virtual environment can be created at this point
 
-+ Use `pip install --user -r requirements.txt` to install all dependencies
++ Use `pip install -r requirements.txt` to install all dependencies
 needed for the bot
 
 + Create a `config` file as described below
