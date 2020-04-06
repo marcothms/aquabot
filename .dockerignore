@@ -1,9 +1,0 @@
-# git related things
-.git
-.gitignore
-
-# build environment not needed for deployment
-.vscode/
-
-# other
-README.md
