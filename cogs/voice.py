@@ -47,7 +47,7 @@ class Voice(commands.Cog):
             await ctx.send(f"Joined {channel}!")
 
 
-    @commands.command(name="leave", aliases=["quit"])
+    @commands.command(name="leave", aliases=["quit","disconnect","dc"])
     @commands.guild_only()
     async def leave(self, ctx):
         """
@@ -100,7 +100,6 @@ class Voice(commands.Cog):
             ctx.send("You're not connected to a voice channel!")
         if voice and voice.is_connected():
             await voice.move_to(channel)
-            await ctx.send(f"Moved to {channel}!")
         else:
             voice = await channel.connect()
             await ctx.send(f"Joined {channel}!")
