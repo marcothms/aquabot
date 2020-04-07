@@ -26,6 +26,6 @@ except FileNotFoundError as error:
 try:
     from config.cogs import __cogs__
     from config.status import __activity__
-    from config.media import __media_anime__, __media_waifu__
+    from config.media import __media_anime__, __media_girl__
 except ImportError as error:
     print(f"Error while importing: {error}")
