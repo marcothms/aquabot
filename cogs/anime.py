@@ -22,25 +22,26 @@ class Anime(commands.Cog):
     @commands.command(name="animemedia")
     async def animemedia(self, ctx):
         """
-        Sends a random anime gif or pic
+        Sends a random Anime gif or picture
         """
         # Choose either a gif or a pic -> config/media.py
         media_type = random.choice(loadconfig.__media_anime__)
         media = random.choice(media_type)
         await ctx.send(media)
 
-    @commands.command(name="waifumedia")
-    async def waifumedia(self, ctx, waifu: str):
+    @commands.command(name="animegirl")
+    async def girlmedia(self, ctx, query: str):
         """
-        Sends a random pic of a waifu
+        Sends a random picture or gif of an Anime girl
         """
         # config/media.py
+        girl = query.capitalize()
         try:
-            media = random.choice(loadconfig.__media_waifu__[waifu])
+            media = random.choice(loadconfig.__media_girl__[girl])
             await ctx.send(media)
         except KeyError as error:
             text = (
-                    f"Waifu `{waifu}` not found in database!\n"
+                    f"Girl `{girl}` not found in database!\n"
                     "It probably sucks...")
             await ctx.send(text)
 

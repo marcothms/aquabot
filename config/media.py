@@ -9,21 +9,26 @@ pics_anime = [
         "https://i.imgur.com/4xnJN9x.png",
         ]
 
-waifu_aqua = []
+girl_aqua = []
 
-waifu_megumin = []
+girl_noel = [
+        "https://i.imgur.com/qSAjVSL.png",
+        ]
 
-waifu_akeno = []
+girl_megumin = []
 
-waifu_rem = []
+girl_akeno = []
+
+girl_rem = []
 
 
 # Exports
 __media_anime__ = [gifs_anime, pics_anime]
 
-__media_waifu__ = {
-        "aqua": waifu_aqua,
-        "meugmin": waifu_megumin,
-        "akeno": waifu_akeno,
-        "rem": waifu_rem
+__media_girl__ = {
+        "Aqua": girl_aqua,
+        "Noel": girl_noel,
+        "Megumin": girl_megumin,
+        "Akeno": girl_akeno,
+        "Rem": girl_rem
         }
