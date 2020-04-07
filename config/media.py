@@ -15,7 +15,12 @@ girl_noel = [
         "https://i.imgur.com/qSAjVSL.png",
         ]
 
-girl_megumin = []
+girl_megumin = [
+        "https://i.imgur.com/mSBfcXA.jpg",
+        "https://i.imgur.com/Dqua2lX.jpg",
+        "https://i.imgur.com/1jzaE3y.png",
+        "https://i.imgur.com/KpGSYD2.png",
+        ]
 
 girl_akeno = []
 

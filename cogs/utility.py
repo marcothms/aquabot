@@ -20,13 +20,13 @@ class Utility(commands.Cog):
 
 # COG BODY
     @commands.command(name="invitelink", aliases=["invite"])
-    async def invite_link(self, ctx):
+    async def invite_link(self, ctx, age=60*10, uses=100, unique=True):
         """
         Sends the server's invitelink to chat
         """
-        age = 60 * 10
-        uses = 100
-        unique = True
+        #age = 60 * 10
+        #uses = 100
+        #unique = True
 
         channel = ctx.message.channel
         link = await channel.create_invite(
