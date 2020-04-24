@@ -66,7 +66,7 @@ class Utility(commands.Cog):
         await ctx.send(response)
 
     @commands.command(name="ollimeme")
-    async def aolli_meme(self, ctx):
+    async def olli_meme(self, ctx):
         """
         Sends a high quality Olli Meme
         """

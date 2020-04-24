@@ -28,6 +28,6 @@ try:
     from config.cogs import __cogs__
     from config.status import __activity__
     from config.media import __media_anime__, __media_girl__
-    from config.olli import __olli_memes__
+    from config.media import __olli_memes__
 except ImportError as error:
     print(f"Error while importing: {error}")
