@@ -1,5 +1,5 @@
 """
-Rework the voice commands
+Play Music
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 # https://gist.github.com/vbe0201/ade9b80f2d3b64643d854938d40a0a2d
@@ -146,6 +146,7 @@ class Song:
                                ))
         embed.add_field(name="Duration", value=self.source.duration)
         embed.add_field(name="Requested by", value=self.requester.mention)
+        embed.add_field(name='URL', value='[Click]({0.source.url})'.format(self))
         embed.set_thumbnail(url=self.source.thumbnail)
 
         return embed
@@ -316,7 +317,7 @@ class Music(commands.Cog):
         """
         Shows the current playing song
         """
-        await ctx.send(embed=voice_state.current.create_embed())
+        await ctx.send(embed=ctx.voice_state.current.create_embed())
 
     @commands.command(name='pause')
     async def pause(self, ctx: commands.Context):
@@ -397,12 +398,14 @@ class Music(commands.Cog):
         if len(ctx.voice_state.songs) == 0:
             return await ctx.send("The queue is empty.")
 
+        start = 0
+        end = 9
+
         queue = ""
         for i, song in enumerate(ctx.voice_state.songs[start:end], start=start):
             queue += '`{0}.` [**{1.source.title}**]({1.source.url})\n'.format(i + 1, song)
 
-        embed = (discord.Embed(description='**{} tracks:**\n\n{}'.format(len(ctx.voice_state.songs), queue))
-                 .set_footer(text='Viewing page {}/{}'.format(page, pages)))
+        embed = discord.Embed(description='**{} tracks:**\n\n{}'.format(len(ctx.voice_state.songs), queue))
         await ctx.send(embed=embed)
 
 
