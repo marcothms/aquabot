@@ -65,14 +65,6 @@ class Utility(commands.Cog):
 
         await ctx.send(response)
 
-    @commands.command(name="ollimeme")
-    async def olli_meme(self, ctx):
-        """
-        Sends a high quality Olli Meme
-        """
-        meme = random.choice(loadconfig.__olli_memes__)
-        await ctx.send(meme)
-
 
 # COG ENDING
 def setup(bot):

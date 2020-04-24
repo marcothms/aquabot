@@ -2,7 +2,7 @@
 Play Music
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-# https://gist.github.com/vbe0201/ade9b80f2d3b64643d854938d40a0a2d
+https://gist.github.com/vbe0201/ade9b80f2d3b64643d854938d40a0a2d
 """
 
 # IMPORTS - external

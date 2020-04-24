@@ -29,5 +29,6 @@ try:
     from config.status import __activity__
     from config.media import __media_anime__, __media_girl__
     from config.memes import __olli_memes__
+    from config.memes import __memes_list__
 except ImportError as error:
     print(f"Error while importing: {error}")
