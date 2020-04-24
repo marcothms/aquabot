@@ -1,7 +1,7 @@
 """
 Initally loaded cogs
-Don't remove the "admin" cog or tou won't be able to load cogs
-from with the Discord-Client
+Don't remove the "admin" cog or you won't be able to load cogs
+from the Discord-Client
 """
 
 __cogs__ = [
@@ -11,5 +11,6 @@ __cogs__ = [
         "cogs.help",
         "cogs.utility",
         "cogs.anime",
-        "cogs.music"
+        "cogs.music",
+        "cogs.meme"
         ]
