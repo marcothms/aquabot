@@ -9,7 +9,8 @@ loadconfig.py then gets called in aquabot.py
 import yaml
 
 # Variable Gathering
-__avatar__ = "https://i.imgur.com/mskM9dH.png"
+__avatar_old__ = "https://i.imgur.com/mskM9dH.png"
+__avatar__ = "https://i.redd.it/0uajctrps9u41.jpg"
 
 try:
     with open("config/config.yml") as file:

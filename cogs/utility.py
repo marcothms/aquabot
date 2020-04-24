@@ -20,13 +20,13 @@ class Utility(commands.Cog):
 
 # COG BODY
     @commands.command(name="invitelink", aliases=["invite"])
-    async def invite_link(self, ctx, age=60*10, uses=100, unique=True):
+    async def invite_link(self, ctx, age=60*10, uses=100):
         """
         Sends the server's invitelink to chat
         """
         #age = 60 * 10
         #uses = 100
-        #unique = True
+        unique = True
 
         channel = ctx.message.channel
         link = await channel.create_invite(
@@ -41,7 +41,7 @@ class Utility(commands.Cog):
                 value=link,
                 inline=True)
         link_embed.set_footer(
-                text=f"Age: {age}, Uses: {uses}, Unique: {unique}",
+                text=f"Age: {age}, Uses: {uses}",
                 icon_url=loadconfig.__avatar__
                 )
 
