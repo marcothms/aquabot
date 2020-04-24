@@ -4,9 +4,13 @@ Send spicy memes to chat
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
 
-# IMPORTS
+# IMPORTS - external
 import discord
 from discord.ext import commands
+import random
+
+# IMPORTS - internal
+import loadconfig
 
 class MemeError(Exception):
     pass
@@ -24,7 +28,7 @@ class Meme(commands.Cog):
         """
         query = meme.capitalize()
 
-        if query == "list":
+        if query == "List":
             meme_list = ""
             for key in loadconfig.__memes_list__.keys():
                 if not meme_list:
@@ -35,7 +39,8 @@ class Meme(commands.Cog):
             await ctx.send(f"Currently listed memes: `{meme_list}`")
         else:
             try:
-                await ctx.send(loadconfig.__memes_list__[query]
+                meme = random.choice(loadconfig.__memes_list__[query])
+                await ctx.send(meme)
             except KeyError as e:
                 await ctx.send("Meme not found in database")
 

@@ -144,6 +144,7 @@ class Song:
                                description=description,
                                colour=discord.Colour.blue()
                                ))
+        embed.add_field(name='Uploader', value='[{0.source.uploader}]({0.source.uploader_url})'.format(self))
         embed.add_field(name="Duration", value=self.source.duration)
         embed.add_field(name="Requested by", value=self.requester.mention)
         embed.add_field(name='URL', value='[Click]({0.source.url})'.format(self))
