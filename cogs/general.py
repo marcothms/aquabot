@@ -29,12 +29,9 @@ class General(commands.Cog):
 
         embed.add_field(name="Owner", value=self.bot.AppInfo.owner, inline=True)
         embed.add_field(name="Command Prefix", value=loadconfig.__prefix__, inline=True)
-        embed.add_field(name="Discord.py Version", value=discord.__version__, inline=True)
-        embed.add_field(name="Python Version", value=platform.python_version(), inline=True)
-        embed.add_field(name="OS", value=f"{platform.system()} {platform.release()} {platform.version()}", inline=True)
 
         footer_text = (
-            "This Bot is an OpenSource project by Marc and can be found "
+            "This Bot is a project by MarcMK and can be found "
             "on github.com/CramMK/aquabot")
         embed.set_footer(text=footer_text, icon_url=loadconfig.__avatar__)
 

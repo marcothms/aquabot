@@ -32,7 +32,7 @@ import loadconfig
 # INIT THE BOT
 bot = commands.Bot(
         command_prefix=loadconfig.__prefix__,
-        description="Holy Goddess Aqua! - for further help on a command, use the argument `list`")
+        description="Holy Goddess Aqua!")
 
 # LOAD COGS SPECIFIED IN 'config/cogs.py'
 for cog in loadconfig.__cogs__:

@@ -11,5 +11,5 @@ __cogs__ = [
         "cogs.help",
         "cogs.utility",
         "cogs.anime",
-        "cogs.voice"
+        "cogs.music"
         ]

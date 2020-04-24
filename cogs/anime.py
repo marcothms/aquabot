@@ -29,13 +29,13 @@ class Anime(commands.Cog):
         media = random.choice(media_type)
         await ctx.send(media)
 
-    @commands.command(name="animegirl")
-    async def girlmedia(self, ctx, query: str):
+    @commands.command(name="animegirl", aliases=["waifu"])
+    async def girlmedia(self, ctx, name: str):
         """
         Sends a random picture or gif of an Anime girl
         """
         # config/media.py
-        girl = query.capitalize()
+        girl = name.capitalize()
 
         if girl == "List":
             girl_list = ""
