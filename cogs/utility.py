@@ -9,6 +9,7 @@ https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 # IMPORTS - external
 import discord
 from discord.ext import commands
+import random
 
 # IMPORTS - internal
 import loadconfig
@@ -37,7 +38,7 @@ class Utility(commands.Cog):
 
         link_embed = discord.Embed(color=discord.Colour.blue())
         link_embed.add_field(
-                name="Here's and invite to our server:",
+                name="Here's an invite to our server:",
                 value=link,
                 inline=True)
         link_embed.set_footer(
@@ -63,6 +64,14 @@ class Utility(commands.Cog):
             response = f"{target} got pat by {author.mention}"
 
         await ctx.send(response)
+
+    @commands.command(name="ollimeme")
+    async def aolli_meme(self, ctx):
+        """
+        Sends a high quality Olli Meme
+        """
+        meme = random.choice(loadconfig.__olli_memes__)
+        await ctx.send(meme)
 
 
 # COG ENDING
