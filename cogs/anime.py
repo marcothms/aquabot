@@ -36,14 +36,26 @@ class Anime(commands.Cog):
         """
         # config/media.py
         girl = query.capitalize()
-        try:
-            media = random.choice(loadconfig.__media_girl__[girl])
-            await ctx.send(media)
-        except KeyError as error:
-            text = (
-                    f"Girl `{girl}` not found in database!\n"
-                    "It probably sucks...")
-            await ctx.send(text)
+
+        if girl == "List":
+            girl_list = ""
+            for key in loadconfig.__media_girl__.keys():
+                if not girl_list:
+                    girl_list = girl_list + key
+                else:
+                    girl_list = girl_list + ", " + key
+
+            await ctx.send(f"Currently listed girls: `{girl_list}`")
+
+        else:
+            try:
+                media = random.choice(loadconfig.__media_girl__[girl])
+                await ctx.send(media)
+            except KeyError as error:
+                text = (
+                        f"Girl `{girl}` not found in database!\n"
+                        "It probably sucks...")
+                await ctx.send(text)
 
 
 # COG ENDING
