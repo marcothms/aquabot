@@ -1,4 +1,4 @@
-![Avatar](https://i.imgur.com/5gNFPUK.jpg)
+![Avatar](https://i.imgur.com/IN62wRa.jpg)
 
 AquaBot
 =======
