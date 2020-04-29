@@ -218,10 +218,7 @@ class VoiceState:
             self.next.clear()
 
             if not self.loop:
-                # Try to get the next song within 3 minutes.
-                # If no song will be added to the queue in time,
-                # the player will disconnect due to performance
-                # reasons.
+                # 3 minute timeout
                 try:
                     async with timeout(180):  # 3 minutes
                         self.current = await self.songs.get()
@@ -349,6 +346,14 @@ class Music(commands.Cog):
         await ctx.message.add_reaction('⏭')
         ctx.voice_state.skip()
 
+    @commands.command(name="clear")
+    async def clear(self, ctx: commands.Context):
+        """
+        Clears the current queue
+        """
+        ctx.voice_state.songs.clear()
+        await ctx.message.add_reaction('⏹')
+
     @commands.command(name='play')
     async def play(self, ctx: commands.Context, *, search: str):
         """
@@ -391,6 +396,7 @@ class Music(commands.Cog):
 #        ctx.voice_state.loop = not ctx.voice_state.loop
 #        await ctx.message.add_reaction('✅')
 
+
     @commands.command(name="queue")
     async def queue(self, ctx: commands.Context):
         """
@@ -399,16 +405,21 @@ class Music(commands.Cog):
         if len(ctx.voice_state.songs) == 0:
             return await ctx.send("The queue is empty.")
 
-        start = 0
-        end = 9
+        page = 1
 
-        queue = ""
+        items_per_page = 10
+        pages = math.ceil(len(ctx.voice_state.songs) / items_per_page)
+
+        start = (page - 1) * items_per_page
+        end = start + items_per_page
+
+        queue = ''
         for i, song in enumerate(ctx.voice_state.songs[start:end], start=start):
             queue += '`{0}.` [**{1.source.title}**]({1.source.url})\n'.format(i + 1, song)
 
-        embed = discord.Embed(description='**{} tracks:**\n\n{}'.format(len(ctx.voice_state.songs), queue))
+        embed = (discord.Embed(description='**{} tracks:**\n\n{}'.format(len(ctx.voice_state.songs), queue))
+                 .set_footer(text='Viewing page {}/{}'.format(page, pages)))
         await ctx.send(embed=embed)
-
 
 # COG ENDING
 def setup(bot):
