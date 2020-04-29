@@ -18,16 +18,16 @@ import asyncio
 import loadconfig
 
 # LOGGING
-#logger = logging.getLogger("discord")
+logger = logging.getLogger("discord")
 # https://docs.python.org/3/library/logging.html#levels
-#logger.setLevel(logging.INFO)
-#handler = logging.FileHandler(
-#        filename="logs/discord.log",
-#        encoding="utf-8",
-#        mode="w")
-#handler.setFormatter(
-#        logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s"))
-#logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler(
+        filename="logs/discord.log",
+        encoding="utf-8",
+        mode="w")
+handler.setFormatter(
+        logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s"))
+logger.addHandler(handler)
 
 # INIT THE BOT
 bot = commands.Bot(
