@@ -1,4 +1,4 @@
-![Avatar](https://i.imgur.com/IN62wRa.jpg)
+![Avatar](https://i.imgur.com/pZDyR3h.jpg)
 
 AquaBot
 =======
@@ -8,8 +8,6 @@ AquaBot
 
 This bot is my first personal project so expect some minor (or bigger) problems
 here and there.
-Also note that this bot is still in its very early stages, so there is no
-guarantee that all features work!
 
 Support and report requests are handled via Discord (Link above).
 
@@ -18,7 +16,7 @@ Installation - pip
 
 + Clone this repository with `git clone https://github.com/CramMK/aquabot`
 
-+ **OPTIONAL:** A virtual environment can be created at this point
++ Create a virtual environment (e.g with `python3 -m venv virtual`)
 
 + Use `pip install -r requirements.txt` to install all dependencies
 needed for the bot
