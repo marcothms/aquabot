@@ -22,14 +22,13 @@ Installation - pip
 needed for the bot
 
 + Create a `config` file as described below
-guideline
 
 + Finally, run `python3 aquabot`
 
 Commands
 ------
 
-The following commands assume that `.` is your default prefix.
+The following commands assume that `.` is your prefix.
 
 There are currently two command, which help the user to naviagte the bot's
 commands:
