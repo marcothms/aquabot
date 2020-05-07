@@ -19,23 +19,6 @@ class General(commands.Cog):
         self.bot = bot
 
 # COG BODY
-    @commands.command(name="about")
-    async def about(self, ctx):
-        """
-        Prints some information about myself
-        """
-        embed = discord.Embed(colour=discord.Colour.blue())
-        embed.set_thumbnail(url=ctx.me.avatar_url)
-
-        embed.add_field(name="Owner", value=self.bot.AppInfo.owner, inline=True)
-        embed.add_field(name="Command Prefix", value=loadconfig.__prefix__, inline=True)
-
-        footer_text = (
-            "This Bot is a project by MarcMK and can be found "
-            "on github.com/CramMK/aquabot")
-        embed.set_footer(text=footer_text, icon_url=loadconfig.__avatar__)
-
-        await ctx.send(embed=embed)
 
 
 # COG ENDING

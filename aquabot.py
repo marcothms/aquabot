@@ -45,7 +45,7 @@ for cog in loadconfig.__cogs__:
 
 # ACTIVITY
 async def activity():
-    while True: # Infinite Loop
+    while True:
         new_activity = random.choice(loadconfig.__activity__)
         status = f"{new_activity[1]} | {loadconfig.__prefix__}aquabot"
         activity = discord.Activity(name=status, type=new_activity[0])
@@ -57,9 +57,6 @@ async def activity():
 async def on_ready():
     """
     This prints some information about the bot, while starting up
-
-    Inspired by:
-    https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
     """
     bot.AppInfo = await bot.application_info()
 

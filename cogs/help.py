@@ -5,9 +5,12 @@ Some help for the users:
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
 
-# IMPORTS - exter
+# IMPORTS - external
 import discord
 from discord.ext import commands
+
+# IMPORTS - internal
+import loadconfig
 
 # COG INIT
 class Help(commands.Cog):
@@ -20,10 +23,17 @@ class Help(commands.Cog):
         """
         Sends a short help for new users
         """
-        response = (
-                "I'm the usele... divine AquaBot!\n"
-                "If you need help. try using the `help` command!")
-        await ctx.send(response)
+        embed = discord.Embed(colour=discord.Colour.blue())
+        embed.set_thumbnail(url=ctx.me.avatar_url)
+
+        embed.add_field(name="Owner", value=self.bot.AppInfo.owner, inline=True)
+        embed.add_field(name="Command Prefix", value=loadconfig.__prefix__, inline=True)
+        embed.add_field(name="Source Code", value="[GitHub](https://github.com/crammk/aquabot)", inline=True)
+
+        footer_text = "This Bot is a project by MarcMK."
+        embed.set_footer(text=footer_text)
+
+        await ctx.send(embed=embed)
 
 
 # COG ENDING
