@@ -16,7 +16,9 @@ Installation - pip
 
 + Clone this repository with `git clone https://github.com/CramMK/aquabot`
 
-+ Create a virtual environment (e.g with `python3 -m venv virtual`)
++ Create a virtual environment (e.g. with `python3 -m venv virtual`)
+
++ Activate the virtual environment (e.g. with `source virtual/bin/activate`)
 
 + Use `pip install -r requirements.txt` to install all dependencies
 needed for the bot
@@ -34,7 +36,7 @@ There are currently two command, which help the user to naviagte the bot's
 commands:
 
 + `.aquabot` shows a short introduction
-+ `.help` shows a list of all commands (A custom help message is WIP)
++ `.help` shows a list of all commands
 
 Config
 ------
