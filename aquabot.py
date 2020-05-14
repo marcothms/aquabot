@@ -70,7 +70,10 @@ async def on_ready():
     """
     print(startup)
 
-    activity_loop = asyncio.ensure_future(activity())
+    #activity_loop = asyncio.ensure_future(activity())
+    name = f"with water | {loadconfig.__prefix__}aquabot"
+    activity = discord.Activity(name=name, type=discord.ActivityType.playing)
+    await bot.change_presence(activity=activity)
 
     print(f"AquaBot is ready!\n")
 
