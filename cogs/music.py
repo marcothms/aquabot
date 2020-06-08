@@ -298,6 +298,7 @@ class Music(commands.Cog):
             return
 
         ctx.voice_state.voice = await destination.connect()
+        await ctx.message.add_reaction('🤙')
 
     @commands.command(name="leave", aliases=["dc"])
     async def leave(self, ctx: commands.Context):
@@ -309,6 +310,7 @@ class Music(commands.Cog):
 
         await ctx.voice_state.stop()
         del self.voice_states[ctx.guild.id]
+        await ctx.message.add_reaction('👋')
 
     @commands.command(name="now", aliases=["np"])
     async def now(self, ctx: commands.Context):
