@@ -28,7 +28,7 @@ needed for the bot
 + Finally, run `python3 aquabot`
 
 Commands
-------
+--------
 
 The following commands assume that `.` is your prefix.
 
@@ -46,5 +46,4 @@ To use the bot you need to add a `config/config.yml` file. For reference, see
 
 Requirements
 ------------
-
 + python>=3.6.0
