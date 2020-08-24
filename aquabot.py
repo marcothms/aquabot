@@ -43,15 +43,6 @@ for cog in loadconfig.__cogs__:
     else:
         print(f"SUCCESS: Loaded {cog}")
 
-# ACTIVITY
-async def activity():
-    while True:
-        new_activity = random.choice(loadconfig.__activity__)
-        status = f"{new_activity[1]} | {loadconfig.__prefix__}aquabot"
-        activity = discord.Activity(name=status, type=new_activity[0])
-        await bot.change_presence(activity=activity)
-        await asyncio.sleep(10*60) # Time in minutes
-
 # BOT STARTING EVENT
 @bot.event
 async def on_ready():
@@ -70,7 +61,6 @@ async def on_ready():
     """
     print(startup)
 
-    #activity_loop = asyncio.ensure_future(activity())
     name = f"with water | {loadconfig.__prefix__}aquabot"
     activity = discord.Activity(name=name, type=discord.ActivityType.playing)
     await bot.change_presence(activity=activity)
