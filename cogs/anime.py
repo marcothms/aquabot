@@ -34,7 +34,6 @@ class Anime(commands.Cog):
         """
         Sends a random picture or gif of an Anime girl
         """
-        # config/media.py
         girl = name.capitalize()
 
         if girl == "List":

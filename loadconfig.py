@@ -8,10 +8,9 @@ loadconfig.py then gets called in aquabot.py
 # IMPORTS
 import yaml
 
-# Variable Gathering
-__avatar_old__ = "https://i.imgur.com/mskM9dH.png"
 __avatar__ = "https://i.redd.it/0uajctrps9u41.jpg"
 
+# Import from yaml
 try:
     with open("config/config.yml") as file:
         config = yaml.safe_load(file)
@@ -24,10 +23,11 @@ except yaml.YAMLError as error:
 except FileNotFoundError as error:
     print(f"Error, please create a config file: {error}")
 
+# Import from *.py in config/ and data/
 try:
     from config.cogs import __cogs__
-    from config.status import __activity__
-    from config.media import __media_anime__, __media_girl__
-    from config.memes import __memes_list__
+
+    from data.media import __media_anime__, __media_girl__
+    from data.memes import __memes_list__
 except ImportError as error:
     print(f"Error while importing: {error}")
