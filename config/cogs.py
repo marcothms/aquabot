@@ -6,11 +6,11 @@ from the Discord-Client
 
 __cogs__ = [
         "cogs.admin",
-        "cogs.general",
-        "cogs.welcome",
-        "cogs.help",
-        "cogs.utility",
         "cogs.anime",
-        "cogs.music",
+        "cogs.general",
+        "cogs.help",
         "cogs.meme"
+        "cogs.music",
+        "cogs.utility",
+        "cogs.welcome",
         ]
