@@ -13,7 +13,7 @@ from discord.ext import commands
 import random
 
 # IMPORTS - internal
-import loadmedia
+import loaddata
 
 # COG INIT
 class Anime(commands.Cog):
@@ -27,7 +27,7 @@ class Anime(commands.Cog):
         Sends a random Anime gif or picture
         """
 
-        media_type = random.choice(loadmedia.__media_anime__)
+        media_type = random.choice(loaddata.__media_anime__)
         media = random.choice(media_type)
         await ctx.send(media)
 
@@ -40,7 +40,7 @@ class Anime(commands.Cog):
 
         if girl == "List":
             girl_list = ""
-            for key in loadmedia.__media_girl__.keys():
+            for key in loaddata.__media_girl__.keys():
                 if not girl_list:
                     girl_list = girl_list + key
                 else:
@@ -50,7 +50,7 @@ class Anime(commands.Cog):
 
         else:
             try:
-                media = random.choice(loadmedia.__media_girl__[girl])
+                media = random.choice(loaddata.__media_girl__[girl])
                 await ctx.send(media)
             except KeyError as error:
                 text = (
