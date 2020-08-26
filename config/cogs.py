@@ -9,7 +9,7 @@ __cogs__ = [
         "cogs.anime",
         "cogs.general",
         "cogs.help",
-        "cogs.meme"
+        "cogs.meme",
         "cogs.music",
         "cogs.utility",
         "cogs.welcome",
