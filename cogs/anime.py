@@ -1,5 +1,7 @@
 """
 Some anime-related commands:
+    - animepic
+    - waifupic
 
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
@@ -11,7 +13,7 @@ from discord.ext import commands
 import random
 
 # IMPORTS - internal
-import loadconfig
+import loadmedia
 
 # COG INIT
 class Anime(commands.Cog):
@@ -19,18 +21,18 @@ class Anime(commands.Cog):
         self.bot = bot
 
 # COG BODY
-    @commands.command(name="animemedia")
+    @commands.command(name="animepic")
     async def animemedia(self, ctx):
         """
         Sends a random Anime gif or picture
         """
-        # Choose either a gif or a pic -> config/media.py
-        media_type = random.choice(loadconfig.__media_anime__)
+
+        media_type = random.choice(loadmedia.__media_anime__)
         media = random.choice(media_type)
         await ctx.send(media)
 
-    @commands.command(name="animegirl", aliases=["waifu"])
-    async def girlmedia(self, ctx, name: str):
+    @commands.command(name="waifupic")
+    async def waifumedia(self, ctx, name: str):
         """
         Sends a random picture or gif of an Anime girl
         """
@@ -38,7 +40,7 @@ class Anime(commands.Cog):
 
         if girl == "List":
             girl_list = ""
-            for key in loadconfig.__media_girl__.keys():
+            for key in loadmedia.__media_girl__.keys():
                 if not girl_list:
                     girl_list = girl_list + key
                 else:
@@ -48,7 +50,7 @@ class Anime(commands.Cog):
 
         else:
             try:
-                media = random.choice(loadconfig.__media_girl__[girl])
+                media = random.choice(loadmedia.__media_girl__[girl])
                 await ctx.send(media)
             except KeyError as error:
                 text = (

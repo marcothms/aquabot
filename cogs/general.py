@@ -1,6 +1,5 @@
 """
 Some general commands:
-    - about
 
 https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """

@@ -2,7 +2,6 @@
 Gather all config data into one file,
 so all other files can call it from here
 
-loadconfig.py then gets called in aquabot.py
 """
 
 # IMPORTS
@@ -23,11 +22,8 @@ except yaml.YAMLError as error:
 except FileNotFoundError as error:
     print(f"Error, please create a config file: {error}")
 
-# Import from *.py in config/ and data/
+# Load cogs activated from the start
 try:
     from config.cogs import __cogs__
-
-    from data.media import __media_anime__, __media_girl__
-    from data.memes import __memes_list__
 except ImportError as error:
     print(f"Error while importing: {error}")

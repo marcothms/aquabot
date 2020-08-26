@@ -4,7 +4,6 @@ AquaBot
 =======
 
 [![discordpy](https://img.shields.io/badge/discordpy-Core-blue)](https://github.com/Rapptz/discord.py)
-[![Discord Server](https://img.shields.io/badge/Support-Discord%20Server-blue.svg)](https://discordapp.com/invite/HbYfyJT)
 
 This bot is my first personal project so expect some minor (or bigger) problems
 here and there.
@@ -20,7 +19,7 @@ Installation - pip
 
 + Activate the virtual environment (e.g. with `source virtual/bin/activate`)
 
-+ Use `pip install -r requirements.txt` to install all dependencies
++ Use `pip3 install -r requirements.txt` to install all dependencies
 needed for the bot
 
 + Create a `config` file as described below

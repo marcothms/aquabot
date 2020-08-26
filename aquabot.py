@@ -1,4 +1,12 @@
 """
+ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄
+ █       █       █  █ █  █       █  ▄    █       █       █
+ █   ▄   █   ▄   █  █ █  █   ▄   █ █▄█   █   ▄   █▄     ▄█
+ █  █▄█  █  █ █  █  █▄█  █  █▄█  █       █  █ █  █ █   █
+ █       █  █▄█  █       █       █  ▄   ██  █▄█  █ █   █
+ █   ▄   █      ██       █   ▄   █ █▄█   █       █ █   █
+ █▄▄█ █▄▄█▄▄▄▄██▄█▄▄▄▄▄▄▄█▄▄█ █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█ █▄▄▄█
+
 AquaBot created by Marc.
 
 This project uses discordpy:
@@ -19,7 +27,7 @@ import loadconfig
 
 # LOGGING
 logger = logging.getLogger("discord")
-# https://docs.python.org/3/library/logging.html#levels
+
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler(
         filename="logs/discord.log",
@@ -29,7 +37,7 @@ handler.setFormatter(
         logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s"))
 logger.addHandler(handler)
 
-# INIT THE BOT
+# INIT
 bot = commands.Bot(
         command_prefix=loadconfig.__prefix__,
         description="Holy Goddess Aqua!")

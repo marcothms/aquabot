@@ -36,7 +36,7 @@ class Admin(commands.Cog):
     @commands.is_owner()
     async def unload(self, ctx, *, cog: str):
         """
-        Used as 'unload cogs.COGNAME' 
+        Used as 'unload cogs.COGNAME'
         """
         try:
             self.bot.unload_extension(cog)
