@@ -27,7 +27,7 @@ class Help(commands.Cog):
         embed.add_field(name="Command Prefix", value=prefix, inline=True)
         embed.add_field(name="Source Code", value="[GitHub](https://github.com/crammk/aquabot)", inline=True)
 
-        footer_text = "This Bot is a project by MarcMK."
+        footer_text = "This Bot is a project by [MarcMK](https://marcmk.de)."
         embed.set_footer(text=footer_text)
 
         await ctx.send(embed=embed)

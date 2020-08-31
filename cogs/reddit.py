@@ -32,9 +32,10 @@ class Reddit(commands.Cog):
         rand_post = random.randint(1, 100)
         # Make sure you're not sending a pinned post
         for i in range(0, rand_post):
-            selected_post = next(x for x in posts if not x.stickied)
+            post = next(x for x in posts if not x.stickied)
 
-        await ctx.send(selected_post.url)
+        await ctx.send(f"> {post.title} by {post.author.name}")
+        await ctx.send(post.url)
 
 # COG ENDING
 def setup(bot):
