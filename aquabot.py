@@ -22,33 +22,9 @@ import platform
 import random
 import asyncio
 import sys
-#import argparse
 import os
 
 # SET VARS
-#parser = argparse.ArgumentParser()
-#parser.add_argument("--prefix", help="Command Prefix")
-#parser.add_argument("--token", help="Discord Bot Token")
-#parser.add_argument("--reddit_client_id", help="Reddit Client ID")
-#parser.add_argument("--reddit_client_secret", help="Reddit Client Secret")
-#parser.add_argument("--reddit_client_useragent", help="Reddit Client User-Agent")
-#args = parser.parse_args()
-#
-#if args.prefix:
-#    prefix = args.prefix
-#
-#if args.token:
-#    token = args.token
-#
-#if args.reddit_client_id:
-#    reddit_client_id = args.reddit_client_id
-#
-#if args.reddit_client_secret:
-#    reddit_client_secret = args.reddit_client_secret
-#
-#if args.reddit_client_useragent:
-#    reddit_client_useragent = args.reddit_client_useragent
-
 prefix = os.environ['PREFIX']
 token = os.environ['TOKEN']
 reddit_client_id = os.environ['REDDIT_CLIENT_ID']
