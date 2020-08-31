@@ -5,29 +5,12 @@ AquaBot
 
 [![discordpy](https://img.shields.io/badge/discordpy-Core-blue)](https://github.com/Rapptz/discord.py)
 
-This bot is my first personal project so expect some minor (or bigger) problems
-here and there.
+This Bot was created with the intention to be used on my own server.
 
-Support and report requests are handled via Discord (Link above).
+## docker-compose
+TODO
 
-Installation - pip
-------------------
-
-+ Clone this repository with `git clone https://github.com/CramMK/aquabot`
-
-+ Create a virtual environment (e.g. with `python3 -m venv virtual`)
-
-+ Activate the virtual environment (e.g. with `source virtual/bin/activate`)
-
-+ Use `pip3 install -r requirements.txt` to install all dependencies
-needed for the bot
-
-+ Create a `config` file as described below
-
-+ Finally, run `python3 aquabot`
-
-Commands
---------
+## Commands
 
 The following commands assume that `.` is your prefix.
 
@@ -37,12 +20,5 @@ commands:
 + `.aquabot` shows a short introduction
 + `.help` shows a list of all commands
 
-Config
-------
-
-To use the bot you need to add a `config/config.yml` file. For reference, see
-`config/config_example.yml`.
-
-Requirements
-------------
+## Requirements
 + python>=3.6.0
