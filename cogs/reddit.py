@@ -34,7 +34,7 @@ class Reddit(commands.Cog):
         for i in range(0, rand_post):
             post = next(x for x in posts if not x.stickied)
 
-        await ctx.send(f"> {post.title} by {post.author.name}")
+        await ctx.send(f"> '{post.title}' by {post.author.name}")
         await ctx.send(post.url)
 
 # COG ENDING
