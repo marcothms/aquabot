@@ -1,7 +1,5 @@
 """
 Send spicy memes to chat
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
 
 # IMPORTS - external
@@ -11,9 +9,6 @@ import random
 
 # IMPORTS - internal
 import loaddata
-
-class MemeError(Exception):
-    pass
 
 # COG INIT
 class Meme(commands.Cog):

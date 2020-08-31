@@ -1,11 +1,5 @@
 """
-Admin commands, that can be used from within the chat:
-    - load
-    - unload
-    - reload
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
-https://gist.github.com/EvieePy/d78c061a4798ae81be9825468fe146be
+Admin commands, that can be used from within the discord-client-chat
 """
 
 # IMPORTS

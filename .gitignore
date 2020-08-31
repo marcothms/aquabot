@@ -9,3 +9,7 @@ __pycache__/
 # generated data from logging
 logs/
 *.log
+
+# venv
+env/
+venv/

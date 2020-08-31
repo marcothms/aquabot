@@ -1,11 +1,6 @@
 """
-Welcoming new users etc.:
-    - listener: join
-    - hello
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+Welcoming new users etc.
 """
-
 
 # IMPORTS
 import discord

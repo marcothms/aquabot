@@ -1,10 +1,5 @@
 """
-Some anime-related commands:
-    - animepic
-    - waifupic
-
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+Some anime-related commands
 """
 
 # IMPORTS - external

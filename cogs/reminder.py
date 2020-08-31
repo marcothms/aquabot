@@ -1,7 +1,5 @@
 """
 A simple reminder option
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
 
 # IMPORTS

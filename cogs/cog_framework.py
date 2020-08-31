@@ -1,7 +1,5 @@
 """
 This framework can be used to create new Cogs, remember to add them in the config
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
 """
 
 # IMPORTS

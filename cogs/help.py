@@ -1,8 +1,5 @@
 """
-Some help for the users:
-    - aquabot
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+Some help for the users
 """
 
 # IMPORTS - external
@@ -10,7 +7,7 @@ import discord
 from discord.ext import commands
 
 # IMPORTS - internal
-import loadconfig
+from __main__ import prefix
 
 # COG INIT
 class Help(commands.Cog):
@@ -27,7 +24,7 @@ class Help(commands.Cog):
         embed.set_thumbnail(url=ctx.me.avatar_url)
 
         embed.add_field(name="Owner", value=self.bot.AppInfo.owner, inline=True)
-        embed.add_field(name="Command Prefix", value=loadconfig.__prefix__, inline=True)
+        embed.add_field(name="Command Prefix", value=prefix, inline=True)
         embed.add_field(name="Source Code", value="[GitHub](https://github.com/crammk/aquabot)", inline=True)
 
         footer_text = "This Bot is a project by MarcMK."

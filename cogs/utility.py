@@ -1,9 +1,5 @@
 """
-Some (more or less) handy utility:
-    - invitelink
-    - pat
-
-https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
+Some (more or less) handy utility
 """
 
 # IMPORTS - external
@@ -12,7 +8,7 @@ from discord.ext import commands
 import random
 
 # IMPORTS - internal
-import loadconfig
+from __main__ import avatar
 
 # COG INIT
 class Utility(commands.Cog):
@@ -43,7 +39,7 @@ class Utility(commands.Cog):
                 inline=True)
         link_embed.set_footer(
                 text=f"Age: {age}, Uses: {uses}",
-                icon_url=loadconfig.__avatar__
+                icon_url=avatar
                 )
 
         await ctx.send(embed=link_embed)
@@ -58,8 +54,6 @@ class Utility(commands.Cog):
         author = ctx.message.author
         if target is None:
             response = "No one to pat..."
-        elif target.capitalize() == "Noel":
-            response = "NNN-GYAAAA!"
         else:
             response = f"{target} got pat by {author.mention}"
 
