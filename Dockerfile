@@ -4,12 +4,12 @@ WORKDIR /data
 
 COPY . /data
 
-ENV PREFIX
-ENV TOKEN
-ENV REDDIT_CLIENT_ID
-ENV REDDIT_CLIENT_SECRET
-ENV REDDIT_CLIENT_USERAGENT
+ENV PREFIX /data
+ENV TOKEN /data
+ENV REDDIT_CLIENT_ID /data
+ENV REDDIT_CLIENT_SECRET /data
+ENV REDDIT_CLIENT_USERAGENT /data
 
 RUN python3 -m pip install -r requirements.txt
 
-CMD python3 aquabot.py --prefix=$PREFIX --token=$TOKEN --reddit_client_id=$REDDIT_CLIENT_ID --reddit_client_secret=$REDDIT_CLIENT_SECRET --reddit_client_useragent=$REDDIT_CLIENT_USERAGENT
+CMD python3 aquabot.py
