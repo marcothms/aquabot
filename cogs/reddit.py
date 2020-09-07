@@ -9,9 +9,9 @@ import random
 import praw
 
 # IMPORTS - internal
-from __main__ import reddit_client_id
-from __main__ import reddit_client_secret
-from __main__ import reddit_client_useragent
+from __main__ import REDDIT_CLIENT_ID
+from __main__ import REDDIT_CLIENT_SECRET
+from __main__ import REDDIT_CLIENT_USERAGENT
 
 # COG INIT
 class Reddit(commands.Cog):
@@ -24,9 +24,9 @@ class Reddit(commands.Cog):
         """
         Send a post from a subreddit to chat
         """
-        reddit = praw.Reddit(client_id=reddit_client_id,
-                             client_secret=reddit_client_secret,
-                             user_agent=reddit_client_useragent)
+        reddit = praw.Reddit(client_id=REDDIT_CLIENT_ID,
+                             client_secret=REDDIT_CLIENT_SECRET,
+                             user_agent=REDDIT_CLIENT_USERAGENT)
 
         posts = reddit.subreddit(sub).hot()
         rand_post = random.randint(1, 100)

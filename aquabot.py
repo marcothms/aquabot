@@ -25,11 +25,11 @@ import sys
 import os
 
 # SET VARS
-prefix = os.environ['PREFIX']
-token = os.environ['TOKEN']
-reddit_client_id = os.environ['REDDIT_CLIENT_ID']
-reddit_client_secret = os.environ['REDDIT_CLIENT_SECRET']
-reddit_client_useragent = os.environ['REDDIT_CLIENT_USERAGENT']
+PREFIX = os.environ['PREFIX']
+TOKEN = os.environ['TOKEN']
+REDDIT_CLIENT_ID = os.environ['REDDIT_CLIENT_ID']
+REDDIT_CLIENT_SECRET = os.environ['REDDIT_CLIENT_SECRET']
+REDDIT_CLIENT_USERAGENT = os.environ['REDDIT_CLIENT_USERAGENT']
 
 avatar = "https://i.redd.it/0uajctrps9u41.jpg"
 
@@ -47,7 +47,7 @@ logger.addHandler(handler)
 
 # INIT
 bot = commands.Bot(
-        command_prefix=prefix,
+        command_prefix=PREFIX,
         description="Holy Goddess Aqua!")
 
 # LOAD COGS
@@ -81,14 +81,14 @@ async def on_ready():
     startup = f"""
     Bot Name: {bot.user.name} - {bot.user.id}\n
     Owner: {bot.AppInfo.owner}\n
-    Command Prefix: {prefix}\n
+    Command Prefix: {PREFIX}\n
     discord.py Version: {discord.__version__}\n
     python Version: {platform.python_version()}\n
     OS: {platform.system()} {platform.release()} {platform.version()}\n
     """
     print(startup)
 
-    name = f"with water | {prefix}aquabot"
+    name = f"with water | {PREFIX}aquabot"
     activity = discord.Activity(name=name, type=discord.ActivityType.playing)
     await bot.change_presence(activity=activity)
 
@@ -96,6 +96,6 @@ async def on_ready():
 
 # START BOT
 bot.run(
-        token,
+        TOKEN,
         bot=True,
         reconnect=True)

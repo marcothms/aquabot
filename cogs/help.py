@@ -7,7 +7,7 @@ import discord
 from discord.ext import commands
 
 # IMPORTS - internal
-from __main__ import prefix
+from __main__ import PREFIX
 
 # COG INIT
 class Help(commands.Cog):
@@ -24,7 +24,7 @@ class Help(commands.Cog):
         embed.set_thumbnail(url=ctx.me.avatar_url)
 
         embed.add_field(name="Owner", value=self.bot.AppInfo.owner, inline=True)
-        embed.add_field(name="Command Prefix", value=prefix, inline=True)
+        embed.add_field(name="Command Prefix", value=PREFIX, inline=True)
         embed.add_field(name="Source Code", value="[GitHub](https://github.com/crammk/aquabot)", inline=True)
 
         footer_text = "This Bot is a project by [MarcMK](https://marcmk.de)."
