@@ -8,7 +8,7 @@ from discord.ext import commands
 import random
 
 # IMPORTS - internal
-import loaddata
+import memes
 
 # COG INIT
 class Meme(commands.Cog):
@@ -25,7 +25,7 @@ class Meme(commands.Cog):
 
         if query == "List":
             meme_list = ""
-            for key in loaddata.__memes_list__.keys():
+            for key in memes.__memes_list__.keys():
                 if not meme_list:
                     meme_list = meme_list + key
                 else:
@@ -34,7 +34,7 @@ class Meme(commands.Cog):
             await ctx.send(f"Currently listed memes: `{meme_list}`")
         else:
             try:
-                meme = random.choice(loaddata.__memes_list__[query])
+                meme = random.choice(memes.__memes_list__[query])
                 await ctx.send(meme)
             except KeyError as e:
                 await ctx.send("Meme not found in database")
