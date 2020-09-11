@@ -31,7 +31,7 @@ REDDIT_CLIENT_ID = os.environ['REDDIT_CLIENT_ID']
 REDDIT_CLIENT_SECRET = os.environ['REDDIT_CLIENT_SECRET']
 REDDIT_CLIENT_USERAGENT = os.environ['REDDIT_CLIENT_USERAGENT']
 
-avatar = "https://i.redd.it/0uajctrps9u41.jpg"
+AVATAR = "https://i.redd.it/0uajctrps9u41.jpg"
 
 # LOGGING
 logger = logging.getLogger("discord")

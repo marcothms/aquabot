@@ -7,9 +7,6 @@ import discord
 from discord.ext import commands
 import random
 
-# IMPORTS - internal
-from __main__ import avatar
-
 # COG INIT
 class Utility(commands.Cog):
     def __init__(self, bot):
@@ -39,7 +36,7 @@ class Utility(commands.Cog):
                 inline=True)
         link_embed.set_footer(
                 text=f"Age: {age}, Uses: {uses}",
-                icon_url=avatar
+                icon_url=ctx.me.avatar_url
                 )
 
         await ctx.send(embed=link_embed)
