@@ -3,8 +3,8 @@ Admin commands, that can be used from within the discord-client-chat
 """
 
 # IMPORTS
-import discord
 from discord.ext import commands
+
 
 # COG INIT
 class Admin(commands.Cog):
@@ -25,7 +25,6 @@ class Admin(commands.Cog):
         else:
             await ctx.send('**`SUCCESS`**')
 
-
     @commands.command(name="unload", hidden=True)
     @commands.is_owner()
     async def unload(self, ctx, *, cog: str):
@@ -38,7 +37,6 @@ class Admin(commands.Cog):
             await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
         else:
             await ctx.send('**`SUCCESS`**')
-
 
     @commands.command(name="reload", hidden=True)
     @commands.is_owner()

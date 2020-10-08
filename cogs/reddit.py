@@ -3,7 +3,6 @@ Fetch pictures from subreddits
 """
 
 # IMPORTS - external
-import discord
 from discord.ext import commands
 import random
 import praw
@@ -12,6 +11,7 @@ import praw
 from __main__ import REDDIT_CLIENT_ID
 from __main__ import REDDIT_CLIENT_SECRET
 from __main__ import REDDIT_CLIENT_USERAGENT
+
 
 # COG INIT
 class Reddit(commands.Cog):
@@ -36,6 +36,7 @@ class Reddit(commands.Cog):
 
         await ctx.send(f"> '{post.title}' by {post.author.name}")
         await ctx.send(post.url)
+
 
 # COG ENDING
 def setup(bot):

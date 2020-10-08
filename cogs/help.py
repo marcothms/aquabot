@@ -9,6 +9,7 @@ from discord.ext import commands
 # IMPORTS - internal
 from __main__ import PREFIX
 
+
 # COG INIT
 class Help(commands.Cog):
     def __init__(self, bot):

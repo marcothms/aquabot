@@ -18,11 +18,14 @@ from async_timeout import timeout
 
 # COG BODY
 
+
 class VoiceError(Exception):
     pass
 
+
 class YTDLError(Exception):
     pass
+
 
 class YTDLSource(discord.PCMVolumeTransformer):
     YTDL_OPTIONS = {
@@ -132,6 +135,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
         return ', '.join(duration)
 
+
 class Song:
     def __init__(self, source: YTDLSource):
         self.source = source
@@ -151,6 +155,7 @@ class Song:
         embed.set_thumbnail(url=self.source.thumbnail)
 
         return embed
+
 
 class SongQueue(asyncio.Queue):
     def __getitem__(self, item):
@@ -173,6 +178,7 @@ class SongQueue(asyncio.Queue):
 
     def remove(self, index: int):
         del self._queue[index]
+
 
 class VoiceState:
     def __init__(self, bot: commands.Bot, ctx: commands.Context):
@@ -250,6 +256,7 @@ class VoiceState:
         if self.voice:
             await self.voice.disconnect()
             self.voice = None
+
 
 class Music(commands.Cog):
     def __init__(self, bot: commands.Bot):
@@ -398,7 +405,6 @@ class Music(commands.Cog):
 #        ctx.voice_state.loop = not ctx.voice_state.loop
 #        await ctx.message.add_reaction('✅')
 
-
     @commands.command(name="queue")
     async def queue(self, ctx: commands.Context):
         """
@@ -422,6 +428,7 @@ class Music(commands.Cog):
         embed = (discord.Embed(description='**{} tracks:**\n\n{}'.format(len(ctx.voice_state.songs), queue))
                  .set_footer(text='Viewing page {}/{}'.format(page, pages)))
         await ctx.send(embed=embed)
+
 
 # COG ENDING
 def setup(bot):

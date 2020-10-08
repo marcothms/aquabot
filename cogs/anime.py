@@ -3,12 +3,12 @@ Some anime-related commands
 """
 
 # IMPORTS - external
-import discord
 from discord.ext import commands
 import random
 
 # IMPORTS - internal
 import loaddata
+
 
 # COG INIT
 class Anime(commands.Cog):
@@ -47,7 +47,7 @@ class Anime(commands.Cog):
             try:
                 media = random.choice(loaddata.__media_girl__[girl])
                 await ctx.send(media)
-            except KeyError as error:
+            except KeyError:
                 text = (
                         f"Girl `{girl}` not found in database!\n"
                         "It probably sucks...")

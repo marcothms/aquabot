@@ -3,8 +3,8 @@ Welcoming new users etc.
 """
 
 # IMPORTS
-import discord
 from discord.ext import commands
+
 
 # COG INIT
 class Welcome(commands.Cog):

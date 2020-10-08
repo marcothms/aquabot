@@ -17,16 +17,13 @@ https://discordpy.readthedocs.io/en/latest/intro.html
 import discord
 from discord.ext import commands
 import logging
-from datetime import datetime
 import platform
-import random
-import asyncio
-import sys
 import os
 
 # SET VARS
+
 PREFIX = os.environ['PREFIX']
-TOKEN = os.environ['TOKEN']
+TOKEN = os.environ['PREFIX']
 REDDIT_CLIENT_ID = os.environ['REDDIT_CLIENT_ID']
 REDDIT_CLIENT_SECRET = os.environ['REDDIT_CLIENT_SECRET']
 REDDIT_CLIENT_USERAGENT = os.environ['REDDIT_CLIENT_USERAGENT']
@@ -70,6 +67,7 @@ for cog in cogs:
     else:
         print(f"SUCCESS: Loaded {cog}")
 
+
 # BOT STARTING EVENT
 @bot.event
 async def on_ready():
@@ -92,7 +90,7 @@ async def on_ready():
     activity = discord.Activity(name=name, type=discord.ActivityType.playing)
     await bot.change_presence(activity=activity)
 
-    print(f"AquaBot is ready!\n")
+    print("AquaBot is ready!\n")
 
 # START BOT
 bot.run(

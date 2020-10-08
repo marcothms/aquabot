@@ -3,8 +3,8 @@ A simple reminder option
 """
 
 # IMPORTS
-import discord
 from discord.ext import commands
+
 
 # COG INIT
 class Reminder(commands.Cog):

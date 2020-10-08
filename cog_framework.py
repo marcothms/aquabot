@@ -3,8 +3,8 @@ This framework can be used to create new Cogs, remember to add them in the confi
 """
 
 # IMPORTS
-import discord
 from discord.ext import commands
+
 
 # COG INIT
 class Foo(commands.Cog):
@@ -12,6 +12,7 @@ class Foo(commands.Cog):
         self.bot = bot
 
 # COG BODY
+
 
 # COG ENDING
 def setup(bot):

@@ -5,7 +5,7 @@ Some (more or less) handy utility
 # IMPORTS - external
 import discord
 from discord.ext import commands
-import random
+
 
 # COG INIT
 class Utility(commands.Cog):
@@ -18,16 +18,16 @@ class Utility(commands.Cog):
         """
         Sends the server's invitelink to chat
         """
-        #age = 60 * 10
-        #uses = 100
+        # age = 60 * 10
+        # uses = 100
         unique = True
 
         channel = ctx.message.channel
         link = await channel.create_invite(
-                max_age = age,
-                max_uses = uses,
-                unique = unique,
-                reason = "Created by AquaBot")
+                max_age=age,
+                max_uses=uses,
+                unique=unique,
+                reason="Created by AquaBot")
 
         link_embed = discord.Embed(color=discord.Colour.blue())
         link_embed.add_field(
@@ -40,7 +40,6 @@ class Utility(commands.Cog):
                 )
 
         await ctx.send(embed=link_embed)
-
 
     @commands.command(name="pat")
     @commands.guild_only()

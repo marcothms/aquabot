@@ -3,12 +3,12 @@ Send spicy memes to chat
 """
 
 # IMPORTS - external
-import discord
 from discord.ext import commands
 import random
 
 # IMPORTS - internal
 import memes
+
 
 # COG INIT
 class Meme(commands.Cog):
@@ -36,9 +36,8 @@ class Meme(commands.Cog):
             try:
                 meme = random.choice(memes.__memes_list__[query])
                 await ctx.send(meme)
-            except KeyError as e:
+            except KeyError:
                 await ctx.send("Meme not found in database")
-
 
 
 # COG ENDING
