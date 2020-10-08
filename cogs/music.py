@@ -1,12 +1,10 @@
 """
 Play Music
 
-A COG NOT WRITTEN BY ME! ALTERED FROM THIS ONE:
+A COG ORIGINALLY CREATED BY ME, I ALTERED THIS ONE TO FIT MY NEEDS
 https://gist.github.com/vbe0201/ade9b80f2d3b64643d854938d40a0a2d
 """
 
-# IMPORTS - external
-import discord
 from discord.ext import commands
 import youtube_dl
 import functools
@@ -16,7 +14,6 @@ import math
 import random
 from async_timeout import timeout
 
-# COG BODY
 
 class VoiceError(Exception):
     pass
@@ -300,6 +297,7 @@ class Music(commands.Cog):
         ctx.voice_state.voice = await destination.connect()
         await ctx.message.add_reaction('🤙')
 
+
     @commands.command(name="leave", aliases=["dc"])
     async def leave(self, ctx: commands.Context):
         """
@@ -312,12 +310,14 @@ class Music(commands.Cog):
         del self.voice_states[ctx.guild.id]
         await ctx.message.add_reaction('👋')
 
+
     @commands.command(name="now", aliases=["np"])
     async def now(self, ctx: commands.Context):
         """
         Shows the current playing song
         """
         await ctx.send(embed=ctx.voice_state.current.create_embed())
+
 
     @commands.command(name='pause')
     async def pause(self, ctx: commands.Context):
@@ -328,6 +328,7 @@ class Music(commands.Cog):
             ctx.voice_state.voice.pause()
             await ctx.message.add_reaction('⏯')
 
+
     @commands.command(name='resume')
     async def resume(self, ctx: commands.Context):
         """
@@ -336,6 +337,7 @@ class Music(commands.Cog):
         if not ctx.voice_state.is_playing and ctx.voice_state.voice.is_paused():
             ctx.voice_state.voice.resume()
             await ctx.message.add_reaction('⏯')
+
 
     @commands.command(name="skip")
     async def skip(self, ctx: commands.Context):
@@ -348,6 +350,7 @@ class Music(commands.Cog):
         await ctx.message.add_reaction('⏭')
         ctx.voice_state.skip()
 
+
     @commands.command(name="clear")
     async def clear(self, ctx: commands.Context):
         """
@@ -355,6 +358,7 @@ class Music(commands.Cog):
         """
         ctx.voice_state.songs.clear()
         await ctx.message.add_reaction('⏹')
+
 
     @commands.command(name='play')
     async def play(self, ctx: commands.Context, *, search: str):
@@ -375,6 +379,7 @@ class Music(commands.Cog):
 
                 await ctx.voice_state.songs.put(song)
                 await ctx.send('Enqueued {}'.format(str(source)))
+
 
     @join.before_invoke
     @play.before_invoke
@@ -423,6 +428,6 @@ class Music(commands.Cog):
                  .set_footer(text='Viewing page {}/{}'.format(page, pages)))
         await ctx.send(embed=embed)
 
-# COG ENDING
+
 def setup(bot):
     bot.add_cog(Music(bot))

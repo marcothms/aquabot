@@ -2,17 +2,15 @@
 Some (more or less) handy utility
 """
 
-# IMPORTS - external
-import discord
 from discord.ext import commands
 import random
 
-# COG INIT
+
 class Utility(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-# COG BODY
+
     @commands.command(name="invitelink", aliases=["invite"])
     async def invite_link(self, ctx, age=60*10, uses=100):
         """
@@ -57,6 +55,5 @@ class Utility(commands.Cog):
         await ctx.send(response)
 
 
-# COG ENDING
 def setup(bot):
     bot.add_cog(Utility(bot))

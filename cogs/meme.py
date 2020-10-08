@@ -2,20 +2,17 @@
 Send spicy memes to chat
 """
 
-# IMPORTS - external
-import discord
 from discord.ext import commands
 import random
 
-# IMPORTS - internal
 import memes
 
-# COG INIT
+
 class Meme(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-# COG BODY
+
     @commands.command(name="meme")
     async def meme(self, ctx, meme: str):
         """
@@ -40,7 +37,5 @@ class Meme(commands.Cog):
                 await ctx.send("Meme not found in database")
 
 
-
-# COG ENDING
 def setup(bot):
     bot.add_cog(Meme(bot))

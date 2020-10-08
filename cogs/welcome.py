@@ -2,16 +2,14 @@
 Welcoming new users etc.
 """
 
-# IMPORTS
-import discord
 from discord.ext import commands
 
-# COG INIT
+
 class Welcome(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-# COG BODY
+
     @commands.Cog.listener()
     async def on_member_join(self, member):
         """
@@ -30,6 +28,5 @@ class Welcome(commands.Cog):
         await ctx.send(f"Hello {ctx.author.mention}!")
 
 
-# COG ENDING
 def setup(bot):
     bot.add_cog(Welcome(bot))

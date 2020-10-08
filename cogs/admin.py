@@ -2,16 +2,14 @@
 Admin commands, that can be used from within the discord-client-chat
 """
 
-# IMPORTS
-import discord
 from discord.ext import commands
 
-# COG INIT
+
 class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-# COG BODY
+
     @commands.command(name="load", hidden=True)
     @commands.is_owner()
     async def load(self, ctx, *, cog: str):
@@ -55,6 +53,5 @@ class Admin(commands.Cog):
             await ctx.send('**`SUCCESS`**')
 
 
-# COG ENDING
 def setup(bot):
     bot.add_cog(Admin(bot))

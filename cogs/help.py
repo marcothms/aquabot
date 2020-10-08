@@ -2,19 +2,16 @@
 Some help for the users
 """
 
-# IMPORTS - external
-import discord
 from discord.ext import commands
 
-# IMPORTS - internal
 from __main__ import PREFIX
 
-# COG INIT
+
 class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-# COG BODY
+
     @commands.command(name="aquabot")
     async def aquabot(self, ctx):
         """
@@ -33,6 +30,5 @@ class Help(commands.Cog):
         await ctx.send(embed=embed)
 
 
-# COG ENDING
 def setup(bot):
     bot.add_cog(Help(bot))

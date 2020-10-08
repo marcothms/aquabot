@@ -2,20 +2,17 @@
 Some anime-related commands
 """
 
-# IMPORTS - external
-import discord
 from discord.ext import commands
 import random
 
-# IMPORTS - internal
 import loaddata
 
-# COG INIT
+
 class Anime(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-# COG BODY
+
     @commands.command(name="animepic")
     async def animemedia(self, ctx):
         """
@@ -25,6 +22,7 @@ class Anime(commands.Cog):
         media_type = random.choice(loaddata.__media_anime__)
         media = random.choice(media_type)
         await ctx.send(media)
+
 
     @commands.command(name="waifupic")
     async def waifumedia(self, ctx, name: str):
@@ -54,6 +52,5 @@ class Anime(commands.Cog):
                 await ctx.send(text)
 
 
-# COG ENDING
 def setup(bot):
     bot.add_cog(Anime(bot))
