@@ -23,7 +23,7 @@ import os
 # SET VARS
 
 PREFIX = os.environ['PREFIX']
-TOKEN = os.environ['PREFIX']
+TOKEN = os.environ['TOKEN']
 REDDIT_CLIENT_ID = os.environ['REDDIT_CLIENT_ID']
 REDDIT_CLIENT_SECRET = os.environ['REDDIT_CLIENT_SECRET']
 REDDIT_CLIENT_USERAGENT = os.environ['REDDIT_CLIENT_USERAGENT']
