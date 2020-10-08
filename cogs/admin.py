@@ -2,6 +2,7 @@
 Admin commands, that can be used from within the discord-client-chat
 """
 
+import discord
 from discord.ext import commands
 
 

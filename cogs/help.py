@@ -2,6 +2,7 @@
 Some help for the users
 """
 
+import discord
 from discord.ext import commands
 
 from __main__ import PREFIX

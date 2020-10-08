@@ -5,6 +5,7 @@ A COG ORIGINALLY CREATED BY ME, I ALTERED THIS ONE TO FIT MY NEEDS
 https://gist.github.com/vbe0201/ade9b80f2d3b64643d854938d40a0a2d
 """
 
+import discord
 from discord.ext import commands
 import youtube_dl
 import functools

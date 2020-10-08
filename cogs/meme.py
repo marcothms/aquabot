@@ -2,6 +2,7 @@
 Send spicy memes to chat
 """
 
+import discord
 from discord.ext import commands
 import random
 

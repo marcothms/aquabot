@@ -2,6 +2,7 @@
 Welcoming new users etc.
 """
 
+import discord
 from discord.ext import commands
 
 

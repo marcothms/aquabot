@@ -2,6 +2,7 @@
 Some (more or less) handy utility
 """
 
+import discord
 from discord.ext import commands
 import random
 
