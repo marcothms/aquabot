@@ -27,6 +27,11 @@ class Reddit(commands.Cog):
                              user_agent=REDDIT_CLIENT_USERAGENT)
 
         try:
+            reddit.subreddits.search_by_name(sub, exact=True)
+        except:
+            await ctx.send(f"Subreddit {sub} not found!")
+
+        try:
             if sorting == "hot":
                 posts = reddit.subreddit(sub).hot()
             elif sorting == "top":
@@ -45,10 +50,10 @@ class Reddit(commands.Cog):
         if submission.over_18 and not ctx.channel.is_nsfw():
             await ctx.send("The post is marked as NSFW, but your text channel isn't!")
         else:
-            text = f""
+            text = ""
             if submission.over_18:
                 text += "❗ NSFW ❗"
-            text += "'{submission.title}' by {submission.author.name} - 🔼 {submission.score}"
+            text += f"'{submission.title}' by {submission.author.name} - 🔼 {submission.score}"
             await ctx.send(text)
             await ctx.send(submission.url)
 
