@@ -49,6 +49,7 @@ cogs = [
         "cogs.admin",
         "cogs.anime",
         "cogs.help",
+        "cogs.jikan",
         "cogs.meme",
         "cogs.music",
         "cogs.reddit",
