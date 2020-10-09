@@ -2,3 +2,4 @@ discord.py[voice]
 youtube-dl
 praw
 argparse
+jikanpy
