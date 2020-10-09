@@ -37,14 +37,18 @@ class Reddit(commands.Cog):
         except ValueError as e:
             await ctx.send(f"Invalid Argument: {e}")
 
-        # WORKS
         rand_post = random.randint(1, 100)
         # Make sure you're not sending a pinned post
         for i in range(0, rand_post):
             submission = next(x for x in posts if not x.stickied)
 
-        await ctx.send(f"'{submission.title}' by {submission.author.name} - 🔼 {submission.score}")
-        await ctx.send(submission.url)
+        if submission.over_18 and not ctx.channel.is_nsfw():
+            await ctx.send("The post is marked as NSFW, but your text channel isn't!")
+        else:
+            if submission.over_18:
+                await ctx.send("❗ NSFW ❗")
+            await ctx.send(f"'{submission.title}' by {submission.author.name} - 🔼 {submission.score}")
+            await ctx.send(submission.url)
 
 
 def setup(bot):
