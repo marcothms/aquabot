@@ -24,8 +24,9 @@ class Help(commands.Cog):
         embed.add_field(name="Owner", value=self.bot.AppInfo.owner, inline=True)
         embed.add_field(name="Command Prefix", value=PREFIX, inline=True)
         embed.add_field(name="Source Code", value="[GitHub](https://github.com/crammk/aquabot)", inline=True)
+        embed.add_field(name="Help", value="Use the 'help' to get a list of commands!")
 
-        footer_text = "This Bot is a project by [MarcMK](https://marcmk.de)."
+        footer_text = "This Bot is a project by MarcMK."
         embed.set_footer(text=footer_text)
 
         await ctx.send(embed=embed)

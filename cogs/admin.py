@@ -20,9 +20,9 @@ class Admin(commands.Cog):
         try:
             self.bot.load_extension(cog)
         except Exception as e:
-            await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
+            await ctx.send(f'**ERROR:** {type(e).__name__} - {e}')
         else:
-            await ctx.send('**`SUCCESS`**')
+            await ctx.send('**SUCCESS**')
 
 
     @commands.command(name="unload", hidden=True)
@@ -34,9 +34,9 @@ class Admin(commands.Cog):
         try:
             self.bot.unload_extension(cog)
         except Exception as e:
-            await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
+            await ctx.send(f'**ERROR:** {type(e).__name__} - {e}')
         else:
-            await ctx.send('**`SUCCESS`**')
+            await ctx.send('**SUCCESS**')
 
 
     @commands.command(name="reload", hidden=True)
@@ -49,9 +49,9 @@ class Admin(commands.Cog):
             self.bot.unload_extension(cog)
             self.bot.load_extension(cog)
         except Exception as e:
-            await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
+            await ctx.send(f'**ERROR:** {type(e).__name__} - {e}')
         else:
-            await ctx.send('**`SUCCESS`**')
+            await ctx.send('**SUCCESS**')
 
 
 def setup(bot):
