@@ -45,9 +45,11 @@ class Reddit(commands.Cog):
         if submission.over_18 and not ctx.channel.is_nsfw():
             await ctx.send("The post is marked as NSFW, but your text channel isn't!")
         else:
+            text = f""
             if submission.over_18:
-                await ctx.send("❗ NSFW ❗")
-            await ctx.send(f"'{submission.title}' by {submission.author.name} - 🔼 {submission.score}")
+                text += "❗ NSFW ❗"
+            text += "'{submission.title}' by {submission.author.name} - 🔼 {submission.score}"
+            await ctx.send(text)
             await ctx.send(submission.url)
 
 
