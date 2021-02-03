@@ -13,6 +13,7 @@ class Utility(commands.Cog):
 
 
     @commands.command(name="invitelink", aliases=["invite"])
+    @commands.guild_only()
     async def invite_link(self, ctx, uses=100):
         """
         Sends the server's invitelink to chat
@@ -33,7 +34,7 @@ class Utility(commands.Cog):
                 value=link,
                 inline=True)
         link_embed.set_footer(
-                text=f"Age: {age}, Uses: {uses}",
+                text=f"This link will last {age} seconds and has {uses} uses.",
                 icon_url=ctx.me.avatar_url
                 )
 
