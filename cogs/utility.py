@@ -13,12 +13,11 @@ class Utility(commands.Cog):
 
 
     @commands.command(name="invitelink", aliases=["invite"])
-    async def invite_link(self, ctx, age=60*10, uses=100):
+    async def invite_link(self, ctx, uses=100):
         """
         Sends the server's invitelink to chat
         """
-        #age = 60 * 10
-        #uses = 100
+        age = 60 * 10
         unique = True
 
         channel = ctx.message.channel
