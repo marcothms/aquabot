@@ -1,7 +1,7 @@
 """
 Play Music
 
-A COG ORIGINALLY CREATED BY ME, I ALTERED THIS ONE TO FIT MY NEEDS
+A COG ORIGINALLY NOT CREATED BY ME, I ALTERED THIS ONE TO FIT MY NEEDS
 https://gist.github.com/vbe0201/ade9b80f2d3b64643d854938d40a0a2d
 """
 
@@ -391,18 +391,6 @@ class Music(commands.Cog):
         if ctx.voice_client:
             if ctx.voice_client.channel != ctx.author.voice.channel:
                 raise commands.CommandError('Bot is already in a voice channel.')
-
-#    @commands.command(name='loop')
-#    async def loop(self, ctx: commands.Context):
-#        """
-#        Loops the currently playing song.
-#        """
-#        if not ctx.voice_state.is_playing:
-#            return await ctx.send('Nothing being played at the moment.')
-#
-#        # Swap states
-#        ctx.voice_state.loop = not ctx.voice_state.loop
-#        await ctx.message.add_reaction('✅')
 
 
     @commands.command(name="queue")

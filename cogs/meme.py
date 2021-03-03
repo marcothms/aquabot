@@ -8,7 +8,6 @@ import random
 
 import memes
 
-
 class Meme(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

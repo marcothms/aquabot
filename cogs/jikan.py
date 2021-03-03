@@ -1,5 +1,5 @@
 """
-Jikan is an unofficial api to access data from myanimelist
+Jikan is an unofficial API to access data from MyAnimeList
 https://jikanpy.readthedocs.io/en/latest/
 """
 
@@ -7,12 +7,12 @@ import discord
 from discord.ext import commands
 from jikanpy import Jikan
 
-
 jikan = Jikan()
 
 class Jikan(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
 
     @commands.group(name="anime")
     async def anime(self, ctx):

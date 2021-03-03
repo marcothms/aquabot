@@ -3,9 +3,9 @@ FROM python:3.8-alpine
 WORKDIR /data
 COPY . /data
 
-RUN apk add .build-deps gcc libc-dev \
-    apk add ffmpeg \
-    && python3 -m pip install -r requirements.txt
+RUN apk add gcc libc-dev \
+    && python3 -m pip install -r requirements.txt \
+    && apk del gcc libc-dev
 
 ENV PREFIX /data
 ENV TOKEN /data

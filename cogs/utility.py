@@ -1,5 +1,5 @@
 """
-Some (more or less) handy utility
+Some utility commands
 """
 
 import discord

@@ -11,7 +11,6 @@ from __main__ import REDDIT_CLIENT_ID
 from __main__ import REDDIT_CLIENT_SECRET
 from __main__ import REDDIT_CLIENT_USERAGENT
 
-
 class Reddit(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

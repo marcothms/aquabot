@@ -1,12 +1,11 @@
 """
-Some help for the users
+User help
 """
 
 import discord
 from discord.ext import commands
 
 from __main__ import PREFIX
-
 
 class Help(commands.Cog):
     def __init__(self, bot):

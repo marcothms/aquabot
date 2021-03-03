@@ -1,10 +1,9 @@
 """
-Admin commands, that can be used from within the discord-client-chat
+Admin commands, that can be used within the Discord Client
 """
 
 import discord
 from discord.ext import commands
-
 
 class Admin(commands.Cog):
     def __init__(self, bot):
