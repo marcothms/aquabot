@@ -1,9 +1,9 @@
-FROM python:3.8
+FROM python:3.8-alpine
 
-RUN apt-get update && apt-get install -y ffmpeg
+RUN apk add ffmpeg \
+    && python3 -m pip install -r requirements.txt
 
 WORKDIR /data
-
 COPY . /data
 
 ENV PREFIX /data
@@ -12,6 +12,4 @@ ENV REDDIT_CLIENT_ID /data
 ENV REDDIT_CLIENT_SECRET /data
 ENV REDDIT_CLIENT_USERAGENT /data
 
-RUN python3 -m pip install -r requirements.txt
-
-CMD python3 aquabot.py
+CMD [ "python3", "./aquabot.py" ]

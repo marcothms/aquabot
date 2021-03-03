@@ -10,7 +10,6 @@ from jikanpy import Jikan
 
 jikan = Jikan()
 
-
 class Jikan(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
