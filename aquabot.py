@@ -1,13 +1,11 @@
 """
- ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄
- █       █       █  █ █  █       █  ▄    █       █       █
- █   ▄   █   ▄   █  █ █  █   ▄   █ █▄█   █   ▄   █▄     ▄█
- █  █▄█  █  █ █  █  █▄█  █  █▄█  █       █  █ █  █ █   █
- █       █  █▄█  █       █       █  ▄   ██  █▄█  █ █   █
- █   ▄   █      ██       █   ▄   █ █▄█   █       █ █   █
- █▄▄█ █▄▄█▄▄▄▄██▄█▄▄▄▄▄▄▄█▄▄█ █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█ █▄▄▄█
+  __ _  __ _ _   _  __ _| |__   ___ | |_ 
+ / _` |/ _` | | | |/ _` | '_ \ / _ \| __|
+| (_| | (_| | |_| | (_| | |_) | (_) | |_ 
+ \__,_|\__, |\__,_|\__,_|_.__/ \___/ \__|
+          |_|                            
 
-AquaBot created by Marc.
+created by Marc.
 
 This project uses discordpy:
 https://discordpy.readthedocs.io/en/latest/intro.html
@@ -25,7 +23,6 @@ TOKEN = os.environ['TOKEN']
 REDDIT_CLIENT_ID = os.environ['REDDIT_CLIENT_ID']
 REDDIT_CLIENT_SECRET = os.environ['REDDIT_CLIENT_SECRET']
 REDDIT_CLIENT_USERAGENT = os.environ['REDDIT_CLIENT_USERAGENT']
-
 AVATAR = "https://i.redd.it/0uajctrps9u41.jpg"
 
 logger = logging.getLogger("discord")
@@ -43,8 +40,7 @@ bot = commands.Bot(
         command_prefix=PREFIX,
         description="Holy Goddess Aqua!")
 
-
-########## Load Cogs
+# Preloaded Cogs
 cogs = [
         "cogs.admin",
         "cogs.anime",
@@ -91,7 +87,6 @@ async def on_ready():
     print("AquaBot is ready!\n")
 
 
-bot.run(
-        TOKEN,
+bot.run(TOKEN,
         bot=True,
         reconnect=True)
