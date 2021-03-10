@@ -6,7 +6,7 @@ services:
     environment:
     restart: always
     volumes:
-      - ./data:/data
+      - ./logs:/logs
 
 volumes:
-  data:
+  logs:
