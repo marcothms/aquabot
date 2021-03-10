@@ -5,3 +5,8 @@ services:
     image: aquabot:latest
     environment:
     restart: always
+    volumes:
+      - ./data:/data
+
+volumes:
+  data:

@@ -68,7 +68,7 @@ async def on_ready():
     print(startup)
 
     activity_name = f"with water | {PREFIX}aquabot"
-    activity = discord.Activity(activity_name=name, type=discord.ActivityType.playing)
+    activity = discord.Activity(name=activity_name, type=discord.ActivityType.playing)
     await bot.change_presence(activity=activity)
 
     print("AquaBot is ready!\n")
