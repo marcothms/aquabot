@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  aquabot:
+    image: aquabot:latest
+    environment:
+    restart: always

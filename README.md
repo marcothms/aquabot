@@ -10,7 +10,8 @@ This Bot was created with the intention to be used on my own server.
 ## docker
 
 + Create a docker image with tag 'latest': `docker build . -t aquabot`
-+ In the correct path, create a docker-compose.yml, the required env vars are found in 'aquabot.py'
++ Copy `docker-compose.yml.example` to `docker-compose.yml`
++ Edit the required environment variables (Found in `aquabot.py`)
 + Start the bot: `docker-compose up -d`
 
 ## Requirements
