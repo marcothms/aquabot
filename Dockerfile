@@ -3,7 +3,7 @@ FROM python:3.8-alpine
 WORKDIR /data
 COPY . /data
 
-RUN apk add gcc libc-dev \
+RUN apk add gcc libc-dev libffi-dev make \
     && python3 -m pip install -r requirements.txt \
     && apk del gcc libc-dev
 

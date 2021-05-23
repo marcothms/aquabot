@@ -36,6 +36,7 @@ bot = commands.Bot(command_prefix=PREFIX, description="Holy Goddess Aqua!")
 
 # Preloaded Cogs
 cogs = ["cogs.admin",
+        "cogs.audio",
         "cogs.help",
         "cogs.jikan",
         "cogs.meme",

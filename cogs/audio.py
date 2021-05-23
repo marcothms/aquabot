@@ -5,7 +5,10 @@ Play some audio samples
 import discord
 from discord.ext import commands
 from discord import FFmpegPCMAudio
+from discord import VoiceClient, VoiceChannel
+import asyncio
 from asyncio import Lock
+import youtube_dl
 
 
 class Player:
@@ -19,18 +22,10 @@ class Player:
         self.__class__.lock.release()
 
     @staticmethod
-    async def play(vc, audio_source):
-        vc.play(audio_source)
-        while vc.is_playing():
-            await asyncio.sleep(0.1)
-        await vc.disconnect()
-
-
-class Audio(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-
-    async def connect(bot: Bot, voice_channel: VoiceChannel) -> VoiceClient:
+    async def connect(bot, voice_channel):
+        """
+        Let's the bot join a VC
+        """
         assert isinstance(voice_channel, VoiceChannel)
         if bot.voice_clients:
             vc: VoiceClient = bot.voice_clients[0]
@@ -43,15 +38,46 @@ class Audio(commands.Cog):
         await asyncio.sleep(0.3)
         return vc
 
-    def parse(query):
-        memes = {"schokobons": "https://www.youtube.com/watch?v=qX7V3EVr1BA"}
+    @staticmethod
+    async def disconnect(vc):
+        await vc.disconnect()
+
+    @staticmethod
+    async def play(vc, audio_source):
+        vc.play(audio_source)
+        while vc.is_playing():
+            await asyncio.sleep(0.1)
+
+
+class Audio(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
+    def parse(self, query):
+        """
+        Parse a request into an uri
+        """
+        memes = {"schokobons": "https://www.youtube.com/watch?v=qX7V3EVr1BA",
+                 "raus": "https://youtu.be/_e1cWuQ8WQw"}
         try:
             return memes[query]
         except KeyError as e:
             return None
 
+    @commands.command(name="dc")
+    async def disconnect(self, ctx):
+        """
+        Disconnect from audio
+        """
+        await Player.disconnect(self.bot.voice_clients[0])
+
     @commands.command(name="play")
     async def play(self, ctx, query):
+        """
+        Play an audio clip
+        - schokobons
+        - raus
+        """
 
         ydl_opts = {
             'format': 'bestaudio/best',
@@ -62,15 +88,19 @@ class Audio(commands.Cog):
             }],
         }
 
-        uri = parse(query)
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            song_info = ydl.extract_info(uri, download=False)
-            audio_stream = song_info["formats"][0]["url"]
+        uri = self.parse(query)
+        if uri is None:
+            await ctx.send("Clip not found!")
+        else:
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                song_info = ydl.extract_info(uri, download=False)
+                audio_stream = song_info["formats"][0]["url"]
 
-        audio_source = FFmpegPCMAudio(audio_stream)
-        async with self.lock as player:
-            vc = await connect(self.bot, member.voice.channel)
-            await player.play(vc, audio_source)
+            audio_source = FFmpegPCMAudio(audio_stream)
+            async with Player() as player:
+                vc = await player.connect(self.bot, ctx.author.voice.channel)
+                await player.play(vc, audio_source)
+            await ctx.send(f"Playing: {uri}")
 
 
 def setup(bot):
