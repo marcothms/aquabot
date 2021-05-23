@@ -36,14 +36,11 @@ bot = commands.Bot(command_prefix=PREFIX, description="Holy Goddess Aqua!")
 
 # Preloaded Cogs
 cogs = ["cogs.admin",
-        "cogs.anime",
         "cogs.help",
         "cogs.jikan",
         "cogs.meme",
-#        "cogs.music",
         "cogs.reddit",
-        "cogs.utility",
-        "cogs.welcome"]
+        "cogs.utility"]
 
 for cog in cogs:
     try:

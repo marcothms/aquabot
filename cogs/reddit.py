@@ -30,16 +30,14 @@ class Reddit(commands.Cog):
         except:
             await ctx.send(f"Subreddit {sub} not found!")
 
-        try:
-            if sorting == "hot":
-                posts = reddit.subreddit(sub).hot()
-            elif sorting == "top":
-                posts = reddit.subreddit(sub).top(time_filter)
-            elif sorting == "new":
-                posts = reddit.subreddit(sub).new()
-
-        except ValueError as e:
-            await ctx.send(f"Invalid Argument: {e}")
+        if sorting == "hot":
+            posts = reddit.subreddit(sub).hot()
+        elif sorting == "top":
+            posts = reddit.subreddit(sub).top(time_filter)
+        elif sorting == "new":
+            posts = reddit.subreddit(sub).new()
+        else:
+            await ctx.send(f"Invalid Argument: {sorting}")
 
         rand_post = random.randint(1, 100)
         # Make sure you're not sending a pinned post

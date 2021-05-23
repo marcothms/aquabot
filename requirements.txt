@@ -3,3 +3,5 @@ youtube-dl
 praw
 argparse
 jikanpy
+PyNaCl
+opuslib
