@@ -1,10 +1,8 @@
 # own config file
-config/config.py
-config/config.yml
+docker-compose.yml
 
 # caches and build environment
 __pycache__/
-.vscode/
 
 # generated data from logging
 *.log
