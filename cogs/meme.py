@@ -43,4 +43,3 @@ class Meme(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Meme(bot))
-q
