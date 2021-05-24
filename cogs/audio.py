@@ -96,6 +96,7 @@ class Audio(commands.Cog):
             }],
         }
 
+        await ctx.trigger_typing()
         uri = self.parse(query)
         if uri:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
