@@ -1,4 +1,3 @@
-# Meme list
 olli = [
         "https://i.imgur.com/t11G5nZ.jpg",
         "https://i.imgur.com/jFx5Jjp.jpg",
@@ -60,10 +59,8 @@ marc = [
         "https://cdn.discordapp.com/attachments/541641216110886932/626153093226299411/MaddlsticksTransparent.png"
         ]
 
-# Exports
-
-__memes_list__ = {
-        "Olli": olli,
-        "Cenk": cenk,
-        "Marc": marc
-        }
+memes = {
+    "Olli": olli,
+    "Cenk": cenk,
+    "Marc": marc
+}

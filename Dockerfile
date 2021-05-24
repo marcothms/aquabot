@@ -1,11 +1,10 @@
-FROM python:3.8-alpine
+FROM python:3.9
 
 WORKDIR /data
 COPY . /data
 
-RUN apk add gcc libc-dev libffi-dev make \
-    && python3 -m pip install -r requirements.txt \
-    && apk del gcc libc-dev
+RUN apt update && apt install -y ffmpeg libopus0 opus-tools \
+    && python3 -m pip install -r requirements.txt
 
 ENV PREFIX /data
 ENV TOKEN /data

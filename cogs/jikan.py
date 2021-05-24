@@ -28,17 +28,7 @@ class Jikan(commands.Cog):
         search = jikan.search("anime", query)
         results = search.get("results")
 
-        #await ctx.send("Which one of these do you mean?")
-
-        #anime_list = ""
-        #for i in range(5):
-        #    anime_list += f'{i+1}: {results[i].get("title")}\n'
-
-        #await ctx.send(anime_list)
-
-        #reply = await commands.wait_for('message', timeout=30.0)
-        #top = results[reply+1]
-        top = results[0]
+        top = results[0]  # get top result
 
         embed = discord.Embed(colour=discord.Colour.blue())
         embed.set_thumbnail(url=top.get("image_url"))

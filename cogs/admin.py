@@ -2,8 +2,8 @@
 Admin commands, that can be used within the Discord Client
 """
 
-import discord
 from discord.ext import commands
+import discord
 
 class Admin(commands.Cog):
     def __init__(self, bot):

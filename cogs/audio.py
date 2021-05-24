@@ -1,13 +1,13 @@
 """
-Play some audio samples
+Play some audio clips
 """
 
-import discord
-from discord.ext import commands
+from asyncio import Lock
 from discord import FFmpegPCMAudio
 from discord import VoiceClient, VoiceChannel
+from discord.ext import commands
 import asyncio
-from asyncio import Lock
+import discord
 import youtube_dl
 
 
@@ -18,8 +18,10 @@ class Player:
         await self.__class__.lock.acquire()
         return self
 
+
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         self.__class__.lock.release()
+
 
     @staticmethod
     async def connect(bot, voice_channel):
@@ -38,9 +40,11 @@ class Player:
         await asyncio.sleep(0.3)
         return vc
 
+
     @staticmethod
     async def disconnect(vc):
         await vc.disconnect()
+
 
     @staticmethod
     async def play(vc, audio_source):
@@ -53,16 +57,19 @@ class Audio(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+
     def parse(self, query):
         """
         Parse a request into an uri
         """
-        memes = {"schokobons": "https://www.youtube.com/watch?v=qX7V3EVr1BA",
+        # TODO: maybe put this into a db?
+        clips = {"schokobons": "https://www.youtube.com/watch?v=qX7V3EVr1BA",
                  "raus": "https://youtu.be/_e1cWuQ8WQw"}
         try:
-            return memes[query]
-        except KeyError as e:
+            return clips[query]
+        except KeyError:
             return None
+
 
     @commands.command(name="dc")
     async def disconnect(self, ctx):
@@ -70,6 +77,7 @@ class Audio(commands.Cog):
         Disconnect from audio
         """
         await Player.disconnect(self.bot.voice_clients[0])
+
 
     @commands.command(name="play")
     async def play(self, ctx, query):
@@ -89,9 +97,7 @@ class Audio(commands.Cog):
         }
 
         uri = self.parse(query)
-        if uri is None:
-            await ctx.send("Clip not found!")
-        else:
+        if uri:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 song_info = ydl.extract_info(uri, download=False)
                 audio_stream = song_info["formats"][0]["url"]
@@ -101,6 +107,8 @@ class Audio(commands.Cog):
                 vc = await player.connect(self.bot, ctx.author.voice.channel)
                 await player.play(vc, audio_source)
             await ctx.send(f"Playing: {uri}")
+        else:
+            await ctx.send(f"Clip '{query}' not found")
 
 
 def setup(bot):
